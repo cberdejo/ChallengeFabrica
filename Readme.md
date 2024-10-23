@@ -49,9 +49,10 @@ Las rotadoras giran la pieza 90 grados en sentido horario o antihorario, cambian
 
 ## Contribuciones
 Este es un trabajo en grupo hecho por ...
+<!--
 <a href="https://github.com/cberdejo/ChallengeFabrica/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=github_username/repo_name" alt="contrib.rocks image" />
 </a>
 
-
+-->
 
