@@ -47,7 +47,7 @@ Las rotadoras giran la pieza 90 grados en sentido horario o antihorario, cambian
 4. **Fresadora, Lijadora, Taladradora y Rotadora**
    - Implementan la interfaz `Maquina` y cada una define el comportamiento específico para modificar la pieza.
 
-##Contribuciones
+## Contribuciones
 Este es un trabajo en grupo hecho por ...
 
 
