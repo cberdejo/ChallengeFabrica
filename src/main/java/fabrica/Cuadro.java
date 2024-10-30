@@ -90,7 +90,9 @@ public class Cuadro {
         return taladradora;
     }
 
-
+    protected void rotar(Sentido sentido){
+        //To Do
+    }
 
     public void setTaladradora(String taladradora) {
         this.taladradora = taladradora;
@@ -102,4 +104,6 @@ public class Cuadro {
                 taladradora +
                 "|";
     }
+
+
 }

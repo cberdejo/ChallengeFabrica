@@ -2,6 +2,7 @@ package fabrica;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Pieza {
@@ -16,16 +17,20 @@ public class Pieza {
             Posicion.CeIn,7,
             Posicion.DeIn,8
     );
-    private Cuadro[] cuadros;
+    private List<Cuadro> cuadros;
     public Pieza (){
         //To Do
 
     }
     public Cuadro getCuadro(Posicion posicion) {
-        return cuadros[posicionMap.get(posicion)];
+        return cuadros.get(posicionMap.get(posicion));
     }
 
     public void rotar(Sentido sentido){
         //To Do
+        //mod 8
+
+        //rotar cuadros por dentro
+        cuadros.forEach(cuadro -> cuadro.rotar(sentido));
     }
 }
