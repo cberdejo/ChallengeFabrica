@@ -1,5 +1,0 @@
-package fabrica;
-
-public interface Maquina {
-    public void 
-}

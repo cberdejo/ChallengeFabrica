@@ -59,6 +59,7 @@ public class Taladradora implements Maquina{
                     cuadro.setLijaOeste(null);
                     break;
                 default:
+
                     throw new RuntimeException("Cuadrante no válido: " + cuadrante);
             }
         });
