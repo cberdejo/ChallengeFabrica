@@ -1,0 +1,22 @@
+package fabrica;
+
+public class Taladradora implements Maquina{
+    private Posicion posicion;
+    private Grosor grosor;
+
+    public Taladradora(Posicion posicion, Grosor grosor) {
+        this.posicion = posicion;
+        this.grosor = grosor;
+    }
+
+    @Override
+    public void actua(Pieza pieza) {
+        Cuadro cuadro = pieza.getCuadro(posicion);
+        //Si existe una lijadora de grosor fino la elimina
+
+        //Comprobar si existe una lijadora pequeña en el centro
+       cuadro.getMaquinas().stram().forEach(maquinas -> {
+           
+       });
+    }
+}
