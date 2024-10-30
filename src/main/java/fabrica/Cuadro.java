@@ -99,10 +99,9 @@ public class Cuadro {
     }
     @Override
     public String toString() {
-        return "|" + lijaNorte + lijaEste + lijaSur + lijaOeste +
+        return  lijaNorte + lijaEste + lijaSur + lijaOeste +
                 fresadoraVertical + fresadoraHorizontal + fresadoraDiagonalIzquierda + fresadoraDiagonalDerecha +
-                taladradora +
-                "|";
+                taladradora;
     }
 
 
