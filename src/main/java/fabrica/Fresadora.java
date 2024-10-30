@@ -14,9 +14,5 @@ public class Fresadora implements Maquina {
 
     @Override
     public void actua(Pieza pieza) {
-        if (!posCorrecta()){throw new
-
-        Cuadro cuadro= pieza.getCuadro(pos);
-        cuadro.setFresadoraVertical()
     }
 }

@@ -7,7 +7,7 @@ public enum Posicion {
     CeSu,
     CeCe,
     CeIn,
-    InSu,
-    InCe,
-    InIn
+    DeSu,
+    DeCe,
+    DeIn
 }

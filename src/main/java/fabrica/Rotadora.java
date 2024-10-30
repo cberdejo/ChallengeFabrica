@@ -9,6 +9,6 @@ public class Rotadora implements Maquina{
 
     @Override
     public void actua(Pieza pieza) {
-        pieza.rota(sentido);
+        pieza.rotar(sentido);
     }
 }

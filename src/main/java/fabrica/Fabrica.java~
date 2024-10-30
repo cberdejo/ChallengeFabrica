@@ -11,7 +11,7 @@ public class Fabrica {
     }
 
     public static Fabrica aleatorio(int n){
-        //To do
+
     }
 
     public void marca(Pieza pieza){
