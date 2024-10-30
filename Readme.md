@@ -75,11 +75,11 @@ Las rotadoras giran la pieza 90 grados en sentido horario o antihorario, cambian
    - Implementan la interfaz `Maquina` y cada una define el comportamiento específico para modificar la pieza.
 
 ## Contribuciones
-Este es un trabajo en grupo hecho por ...
-<!--
+Este es un trabajo en grupo hecho por
+
 <a href="https://github.com/cberdejo/ChallengeFabrica/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=github_username/repo_name" alt="contrib.rocks image" />
 </a>
 
--->
+
 
