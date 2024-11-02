@@ -32,7 +32,7 @@ public record Vector(Punto extremo) {
      * @return Un nuevo vector resultado de la suma.
      */
     public Vector sum(Vector v) {
-        return new Vector(this.extremo.x() + v.extremo.x(), this.extremo.y() + v.extremo.y());
+        return new Vector(this.x() + v.x(), this.y() + v.y());
     }
 
     /**
@@ -41,7 +41,7 @@ public record Vector(Punto extremo) {
      * @return Un nuevo vector ortogonal al actual.
      */
     public Vector ortogonal() {
-        return new Vector(-extremo.y(), extremo.x());
+        return new Vector(-y(), x());
     }
 
     /**
@@ -51,22 +51,22 @@ public record Vector(Punto extremo) {
      * @return `true` si los vectores son paralelos, `false` en caso contrario.
      */
     public boolean esParalelo(Vector otro) {
-        return Math.abs(this.extremo.x() * otro.extremo.y() - this.extremo.y() * otro.extremo.x()) < EPSILON;
+        return Math.abs(this.x() * otro.y() - this.y() * otro.x()) < EPSILON;
     }
 
     /**
      * Calcula y retorna el módulo del vector.
      *
-     * @return El módulo (longitud) del vector.
+     * @return El módulo del vector.
      */
     public double modulo() {
-        return Math.sqrt(extremo.x() * extremo.x() + extremo.y() * extremo.y());
+        return Math.sqrt(x() * x() + y() * y());
+
     }
 
     /**
      * Retorna un vector unitario en la misma dirección y sentido del vector actual.
-     * Lanza una RuntimeException si el módulo es cero.
-     *
+     * @throws RuntimeException Si el módulo del vector es cero.
      * @return Un vector unitario en la dirección del vector actual.
      */
     public Vector dirección() {
@@ -74,7 +74,7 @@ public record Vector(Punto extremo) {
         if (modulo == 0) {
             throw new RuntimeException("El módulo del vector es cero, no se puede definir dirección.");
         }
-        return new Vector(extremo.x() / modulo, extremo.y() / modulo);
+        return new Vector(x() / modulo, y() / modulo);
     }
 
     /**
@@ -85,7 +85,47 @@ public record Vector(Punto extremo) {
      *         dado.
      */
     public Punto extremoDesde(Punto org) {
-        return new Punto(org.x() + extremo.x(), org.y() + extremo.y());
+        return new Punto(org.x() + x(), org.y() + y());
+    }
+
+    /**
+     * Obtiene la componente x del vector.
+     *
+     * @return La coordenada x del extremo del vector.
+     */
+    public double x() {
+        return extremo.x();
+    }
+
+    /**
+     * Obtiene la componente y del vector.
+     *
+     * @return La coordenada y del extremo del vector.
+     */
+    public double y() {
+        return extremo.y();
+    }
+
+    /**
+     * Calcula la diferencia entre este vector y otro vector dado.
+     * Devuelve un nuevo vector que representa la resta (este vector - otro).
+     *
+     * @param otro El vector a restar del vector actual.
+     * @return Un nuevo vector que es la diferencia entre este vector y el otro vector.
+     */
+    public Vector dif(Vector otro) {
+        return new Vector(new Punto(this.x() - otro.x(), this.y() - otro.y()));
+    }
+
+    /**
+     * Escala el vector actual por un valor escalar dado.
+     * Devuelve un nuevo vector que es el resultado de multiplicar cada componente por el escalar.
+     *
+     * @param factor El factor escalar por el cual multiplicar el vector.
+     * @return Un nuevo vector que es el resultado de escalar este vector por el factor dado.
+     */
+    public Vector escalar(double factor) {
+        return new Vector(new Punto(this.x() * factor, this.y() * factor));
     }
 
     /**
