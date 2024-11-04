@@ -17,7 +17,7 @@ public class Lijadora implements Maquina {
             Posicion.IzCe,
             Posicion.IzIn,
             Posicion.CeSu,
-            Posicion.CeCe+
+            Posicion.CeCe
 
 
     );

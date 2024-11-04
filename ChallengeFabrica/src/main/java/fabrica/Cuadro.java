@@ -115,16 +115,8 @@ public class Cuadro {
         checkCorrectGrosor(grosorTaladradora);
         this.grosorTaladradora = grosorTaladradora;
     }
-    /// Devuelve el grosor de las lijas lijas del cuadro en el siguiente orden:
-    /// 1. Norte
-    /// 1. Sur
-    /// 1. Este
-    /// 1. Oeste
-    /// @return lista de grosor de lijas
+
     ///
-    protected List<Integer> getLijas(){
-        return List.of(grosorLijaNorte, grosorLijaSur, grosorLijaEste, grosorLijaOeste);
-    }
     protected void rotar(Sentido sentido){
         //To Do
     }

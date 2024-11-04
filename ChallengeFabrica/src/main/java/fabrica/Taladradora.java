@@ -48,7 +48,7 @@ public class Taladradora implements Maquina{
             cuadro.setGrosorLijaSur(0);
         }
     }
-    
+
     @Override
     public void actua(Pieza pieza) {
         // Obtiene el cuadro en la posición de la pieza
