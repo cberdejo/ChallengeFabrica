@@ -123,7 +123,7 @@ public class Cuadro {
     /// @return lista de grosor de lijas
     ///
     protected List<Integer> getLijas(){
-        return List.of(grosorLijaNorte, grosorLijaSur, grosorLijaEste, grosorLijaOeste);
+        return List.of(GrosorLij
     }
     protected void rotar(Sentido sentido){
         //To Do
