@@ -1,8 +1,6 @@
 package fabrica;
 
 import java.util.EnumSet;
-import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 public class Taladradora implements Maquina {
@@ -33,6 +31,7 @@ public class Taladradora implements Maquina {
         int grosorLijaSur = cuadro.getGrosorLijaSur();
         int grosorLijaEste = cuadro.getGrosorLijaEste();
         int grosorLijaOeste = cuadro.getGrosorLijaOeste();
+
         if (esLijaFina(grosorLijaNorte)) {
             cuadro.setGrosorLijaNorte(0);
         }
