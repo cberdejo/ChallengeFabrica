@@ -1,5 +1,5 @@
 package fabrica;
 
 public enum OrLija {
-    Norte, Sur
+    Norte, Sur, Este, Oeste
 }

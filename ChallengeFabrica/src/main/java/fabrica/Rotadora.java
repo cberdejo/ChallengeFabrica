@@ -7,6 +7,10 @@ public class Rotadora implements Maquina{
         this.sentido = sentido;
     }
 
+    public Sentido getSentido() {
+        return sentido;
+    }
+
     @Override
     public void actua(Pieza pieza) {
         pieza.rotar(sentido);

@@ -22,7 +22,7 @@ public class Lijadora implements Maquina {
 
     );
 
-    public Lijadora(Grosor grosor, OrLija orLija, Posicion pos) {
+    public Fresadora(Grosor grosor, OrLija orLija, Posicion pos) {
 
         if(!posicionesValidas.contains(posicion)){
             throw new IllegalArgumentException("Posición no válida: "+pos)

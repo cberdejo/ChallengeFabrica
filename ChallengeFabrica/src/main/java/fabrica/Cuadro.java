@@ -1,107 +1,143 @@
 package fabrica;
 
 import java.util.List;
+import java.util.Map;
 
 public class Cuadro {
-    private String fresadoraVertical;
-    private String fresadoraHorizontal;
-    private String fresadoraDiagonalDerecha;
-    private String fresadoraDiagonalIzquierda;
-    private String lijaNorte;
-    private String lijaSur;
-    private String lijaEste;
-    private String lijaOeste;
-    private String taladradora;
+    private int grosorFresadoraVertical;
+    private int grosorFresadoraHorizontal;
+    private int grosorFresadoraDiagonalDerecha;
+    private int grosorFresadoraDiagonalIzquierda;
+    private int grosorLijaNorte;
+    private int grosorLijaSur;
+    private int grosorLijaEste;
+    private int grosorLijaOeste;
+    private int grosorTaladradora;
 
     public Cuadro() {
-        fresadoraVertical = "   ";
-        fresadoraHorizontal = "   ";
-        fresadoraDiagonalDerecha = "   ";
-        fresadoraDiagonalIzquierda = "   ";
-        lijaNorte = "   ";
-        lijaSur = "   ";
-        lijaEste = "   ";
-        lijaOeste = "   ";
-        taladradora = "   ";
+        grosorFresadoraVertical = 0;
+        grosorFresadoraHorizontal = 0;
+        grosorFresadoraDiagonalDerecha = 0;
+        grosorFresadoraDiagonalIzquierda = 0;
+        grosorLijaNorte = 0;
+        grosorLijaSur =0;
+        grosorLijaEste =0;
+        grosorLijaOeste =0;
+        grosorTaladradora=0;
 
     }
 
-    protected String getFresadoraVertical() {
-        return fresadoraVertical;
-    }
-    protected void setFresadoraVertical(String fresadoraVertical) {
-        this.fresadoraVertical = fresadoraVertical;
+    public int getGrosorFresadoraVertical() {
+        return grosorFresadoraVertical;
     }
 
-    protected String getFresadoraHorizontal() {
-        return fresadoraHorizontal;
-    }
-    protected void setFresadoraHorizontal(String fresadoraHorizontal) {
-        this.fresadoraHorizontal = fresadoraHorizontal;
-    }
-
-    protected String getFresadoraDiagonalDerecha() {
-        return fresadoraDiagonalDerecha;
-    }
-    protected void setFresadoraDiagonalDerecha(String fresadoraDiagonalDerecha) {
-        this.fresadoraDiagonalDerecha = fresadoraDiagonalDerecha;
+    private void checkCorrectGrosor(int grosor){
+        if (grosor < 1 || grosor >3){
+            throw new IllegalArgumentException("Grosor incorrecto, debe ser entre 0 y 2");
+        }
     }
 
-    protected String getFresadoraDiagonalIzquierda() {
-        return fresadoraDiagonalIzquierda;
-    }
-    protected void setFresadoraDiagonalIzquierda(String fresadoraDiagonalIzquierda) {
-        this.fresadoraDiagonalIzquierda = fresadoraDiagonalIzquierda;
+    public void setGrosorFresadoraVertical(int grosorFresadoraVertical) {
+        checkCorrectGrosor(grosorFresadoraVertical);
+        this.grosorFresadoraVertical = grosorFresadoraVertical;
     }
 
-    protected String getLijaNorte() {
-        return lijaNorte;
-    }
-    protected void setLijaNorte(String lijaNorte) {
-        this.lijaNorte = lijaNorte;
+    public int getGrosorFresadoraHorizontal() {
+        return grosorFresadoraHorizontal;
     }
 
-    protected String getLijaSur() {
-        return lijaSur;
-    }
-    protected void setLijaSur(String lijaSur) {
-        this.lijaSur = lijaSur;
+    public void setGrosorFresadoraHorizontal(int grosorFresadoraHorizontal) {
+        checkCorrectGrosor(grosorFresadoraHorizontal);
+        this.grosorFresadoraHorizontal = grosorFresadoraHorizontal;
     }
 
-    protected String getLijaEste() {
-        return lijaEste;
-    }
-    protected void setLijaEste(String lijaEste) {
-        this.lijaEste = lijaEste;
+    public int getGrosorFresadoraDiagonalDerecha() {
+        checkCorrectGrosor(grosorFresadoraDiagonalDerecha);
+        return grosorFresadoraDiagonalDerecha;
     }
 
-    protected String getLijaOeste() {
-        return lijaOeste;
-    }
-    protected void setLijaOeste(String lijaOeste) {
-        this.lijaOeste = lijaOeste;
+    public void setGrosorFresadoraDiagonalDerecha(int grosorFresadoraDiagonalDerecha) {
+        checkCorrectGrosor(grosorFresadoraDiagonalDerecha);
+        this.grosorFresadoraDiagonalDerecha = grosorFresadoraDiagonalDerecha;
     }
 
-    protected List<String> getLijas(){
-        return List.of(lijaNorte, lijaSur, lijaEste, lijaOeste);
+    public int getGrosorFresadoraDiagonalIzquierda() {
+        checkCorrectGrosor(grosorFresadoraDiagonalIzquierda);
+        return grosorFresadoraDiagonalIzquierda;
     }
 
-    protected String getTaladradora() {
-        return taladradora;
+    public void setGrosorFresadoraDiagonalIzquierda(int grosorFresadoraDiagonalIzquierda) {
+        checkCorrectGrosor(grosorFresadoraDiagonalIzquierda);
+        this.grosorFresadoraDiagonalIzquierda = grosorFresadoraDiagonalIzquierda;
     }
 
+    public int getGrosorLijaNorte() {
+        return grosorLijaNorte;
+    }
+
+    public void setGrosorLijaNorte(int grosorLijaNorte) {
+        checkCorrectGrosor(grosorLijaNorte);
+        this.grosorLijaNorte = grosorLijaNorte;
+    }
+
+    public int getGrosorLijaSur() {
+        return grosorLijaSur;
+    }
+
+    public void setGrosorLijaSur(int grosorLijaSur) {
+        checkCorrectGrosor(grosorLijaSur);
+        this.grosorLijaSur = grosorLijaSur;
+    }
+
+    public int getGrosorLijaEste() {
+        return grosorLijaEste;
+    }
+
+    public void setGrosorLijaEste(int grosorLijaEste) {
+        checkCorrectGrosor(grosorLijaEste);
+        this.grosorLijaEste = grosorLijaEste;
+    }
+
+    public int getGrosorLijaOeste() {
+        return grosorLijaOeste;
+    }
+
+    public void setGrosorLijaOeste(int grosorLijaOeste) {
+        checkCorrectGrosor(grosorLijaOeste);
+        this.grosorLijaOeste = grosorLijaOeste;
+    }
+
+    public int getGrosorTaladradora() {
+        return grosorTaladradora;
+    }
+
+    public void setGrosorTaladradora(int grosorTaladradora) {
+        checkCorrectGrosor(grosorTaladradora);
+        this.grosorTaladradora = grosorTaladradora;
+    }
+
+    ///
     protected void rotar(Sentido sentido){
         //To Do
     }
 
-    public void setTaladradora(String taladradora) {
-        this.taladradora = taladradora;
-    }
     @Override
     public String toString() {
-        return  lijaNorte + lijaEste + lijaSur + lijaOeste +
-                fresadoraVertical + fresadoraHorizontal + fresadoraDiagonalIzquierda + fresadoraDiagonalDerecha +
-                taladradora;
+        StringBuilder result = new StringBuilder();
+
+        // Añadimos cada valor si es distinto de 0
+        if (grosorLijaNorte != 0) result.append("LN").append(Integer.toString(grosorLijaNorte));
+        if (grosorLijaEste != 0) result.append("LE").append(Integer.toString(grosorLijaEste));
+        if (grosorLijaSur != 0) result.append("LS").append(Integer.toString(grosorLijaSur));
+        if (grosorLijaOeste != 0) result.append("LO").append(Integer.toString(grosorLijaOeste));
+        if (grosorFresadoraVertical != 0) result.append("FV").append(Integer.toString(grosorFresadoraVertical));
+        if (grosorFresadoraHorizontal != 0) result.append("FH").append(Integer.toString(grosorFresadoraHorizontal));
+        if (grosorFresadoraDiagonalIzquierda != 0) result.append("FI").append(Integer.toString(grosorFresadoraDiagonalIzquierda));
+        if (grosorFresadoraDiagonalDerecha != 0) result.append("FD").append(Integer.toString(grosorFresadoraDiagonalDerecha));
+        if (grosorTaladradora != 0) result.append("T").append(Integer.toString(grosorTaladradora));
+
+
+        return result.toString();
     }
 
 
