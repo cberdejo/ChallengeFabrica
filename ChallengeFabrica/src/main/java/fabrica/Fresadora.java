@@ -6,10 +6,10 @@ public class Fresadora implements Maquina {
     private OrFresa orFresa;
     private Posicion pos;
 
-    public Fresadora(Grosor grosor, OrFresa orFresa, Posicion pos) {
+    public Fresadora(Grosor grosor, OrFresa orFresa, Posicion posi) {
         this.grosor = grosor;
         this.orFresa = orFresa;
-        this.pos = pos;
+        this.pos = posi;
     }
 
     @Override
