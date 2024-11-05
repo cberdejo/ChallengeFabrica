@@ -93,6 +93,23 @@ public record Vector(Punto extremo) {
      *
      * @return Una cadena que describe el vector en formato "(x, y)".
      */
+
+    public double x() {
+        return extremo.x();
+    }
+
+    public double y() {
+        return extremo.y();
+    }
+
+    public Vector dif(Vector v) {
+        return new Vector(this.extremo.x() - v.extremo.x(), this.extremo.y() - v.extremo.y());
+    }
+
+    public Vector escalar(double factor) {
+        return new Vector(extremo.x() * factor, extremo.y() * factor);
+    }
+
     @Override
     public String toString() {
         return "Vector(" + extremo.x() + ", " + extremo.y() + ")";
