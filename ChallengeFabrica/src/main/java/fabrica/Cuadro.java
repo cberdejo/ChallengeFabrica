@@ -139,7 +139,7 @@ public class Cuadro {
         }
         grosorSwich = grosorFresadoraVertical;
         grosorFresadoraVertical = grosorFresadoraHorizontal;
-        grosorFresadoraVertical = grosorSwich;
+        grosorFresadoraHorizontal = grosorSwich;
 
         grosorSwich = grosorFresadoraDiagonalDerecha;
         grosorFresadoraDiagonalDerecha = grosorFresadoraDiagonalIzquierda;
