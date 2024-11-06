@@ -133,6 +133,8 @@ public record Vector(Punto extremo) {
      *
      * @return Una cadena que describe el vector en formato "(x, y)".
      */
+
+
     @Override
     public String toString() {
         return "Vector(" + extremo.x() + ", " + extremo.y() + ")";
