@@ -1,3 +1,5 @@
+import rectas.Implicita;
+import rectas.Punto;
 import rectas.Recta;
 
 

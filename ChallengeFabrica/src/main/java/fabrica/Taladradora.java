@@ -73,6 +73,8 @@ public class Taladradora implements Maquina {
                 break;
         }
 
+
+
         // Obtener el estado actual de la taladradora en el cuadro
         int grosorTaladradoraActual = cuadro.getGrosorTaladradora();
 

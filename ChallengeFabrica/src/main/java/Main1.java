@@ -1,17 +1,13 @@
-package fabrica;
+import fabrica.*;
 
-import java.util.List;
-
-public class Main {
-
+public class Main1 {
     public static void main(String[] args) {
-
         // Crear las máquinas de la cadena de producción
         Maquina fresadora1 = new Fresadora(Grosor.Medio, OrFresa.Vertical, Posicion.IzSu);
         Maquina fresadora2 = new Fresadora(Grosor.Medio, OrFresa.Diagonal, Posicion.IzCe);
         Maquina fresadora3 = new Fresadora(Grosor.Medio, OrFresa.Vertical, Posicion.IzIn);
         Maquina rotadora1 = new Rotadora(Sentido.Antihorario);
-        //Maquina lijadora1 = new Lijadora(Posicion.CeSu, OrLija.Norte, Grosor.Fino);
+        Maquina lijadora1 = new Lijadora(Posicion.CeSu, OrLija.Norte, Grosor.Fino);
         Maquina fresadora4 = new Fresadora(Grosor.Grueso, OrFresa.Diagonal, Posicion.CeSu);
         Maquina rotadora2 = new Rotadora(Sentido.Antihorario);
         Maquina fresadora5 = new Fresadora(Grosor.Medio, OrFresa.Diagonal, Posicion.CeCe);
@@ -20,9 +16,9 @@ public class Main {
         Maquina fresadora6 = new Fresadora(Grosor.Fino, OrFresa.Vertical, Posicion.CeSu);
         Maquina fresadora7 = new Fresadora(Grosor.Medio, OrFresa.Vertical, Posicion.IzIn);
         Maquina rotadora4 = new Rotadora(Sentido.Horario);
-        //Maquina lijadora2 = new Lijadora(Posicion.IzCe, OrLija.Sur, Grosor.Grueso);
+        Maquina lijadora2 = new Lijadora(Posicion.IzCe, OrLija.Sur, Grosor.Grueso);
         Maquina fresadora8 = new Fresadora(Grosor.Fino, OrFresa.Diagonal, Posicion.CeCe);
-        //Maquina lijadora3 = new Lijadora(Posicion.IzSu, OrLija.NorteSur, Grosor.Medio);
+        Maquina lijadora3 = new Lijadora(Posicion.IzSu, OrLija.Norte.Sur, Grosor.Medio);
         Maquina fresadora9 = new Fresadora(Grosor.Medio, OrFresa.Vertical, Posicion.IzCe);
         Maquina fresadora10 = new Fresadora(Grosor.Grueso, OrFresa.Diagonal, Posicion.IzSu);
 
