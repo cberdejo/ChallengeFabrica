@@ -1,6 +1,14 @@
 package fabrica;
 
+<<<<<<< HEAD
 import java.util.*;
+=======
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+>>>>>>> 8694006cf6d073d205fd86e316ab9967b46c092b
 
 public class Lijadora implements Maquina {
 
@@ -14,6 +22,11 @@ public class Lijadora implements Maquina {
             Posicion.IzIn,
             Posicion.CeSu,
             Posicion.CeCe
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8694006cf6d073d205fd86e316ab9967b46c092b
     );
 
     public Lijadora(Posicion posicion,OrLija or,Grosor grosor) {
