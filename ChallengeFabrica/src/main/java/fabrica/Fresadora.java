@@ -68,7 +68,7 @@ public class Fresadora implements Maquina {
     /// Si el grosor de la fresadora existente es menor que el grosor deseado, se actualiza.
     ///
     /// @param cuadro El cuadro de la pieza donde se aplicará la fresadora.
-    /// @param orFresa La orientación de la fresadora (Vertical, Horizontal, Diagonal).
+    /// @param orFresa La orientación de la fresadora (Vertical, Diagonal).
     ///
     private void nuevaFresaOActualiza(Cuadro cuadro, OrFresa orFresa) {
         int grosorFresaDeseado;
@@ -96,26 +96,15 @@ public class Fresadora implements Maquina {
                     cuadro.setGrosorFresadoraVertical(grosorFresaDeseado);
                 break;
 
-            case Horizontal:
-                int grosorFresaH = cuadro.getGrosorFresadoraHorizontal();
-                // Si el grosor actual es menor que el deseado, se actualiza
-                if (grosorFresaH < grosorFresaDeseado)
-                    cuadro.setGrosorFresadoraHorizontal(grosorFresaDeseado);
-                break;
 
-            case DiagonalDerecha:
-                int grosorFresaDD = cuadro.getGrosorFresadoraDiagonalDerecha();
+            case Diagonal:
+                int grosorFresaD = cuadro.getGrosorFresadoraDiagonalDerecha();
                 // Si el grosor actual es menor que el deseado, se actualiza
-                if (grosorFresaDD < grosorFresaDeseado)
+                if (grosorFresaD < grosorFresaDeseado)
                     cuadro.setGrosorFresadoraDiagonalDerecha(grosorFresaDeseado);
                 break;
 
-            case DiagonalIzquierda:
-                int grosorFresaDI = cuadro.getGrosorFresadoraDiagonalIzquierda();
-                // Si el grosor actual es menor que el deseado, se actualiza
-                if (grosorFresaDI < grosorFresaDeseado)
-                    cuadro.setGrosorFresadoraDiagonalIzquierda(grosorFresaDeseado);
-                break;
+
         }
     }
 }

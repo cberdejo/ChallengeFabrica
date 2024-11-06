@@ -8,23 +8,23 @@ public class Main {
 
         // Crear las máquinas de la cadena de producción
         Maquina fresadora1 = new Fresadora(Grosor.Medio, OrFresa.Vertical, Posicion.IzSu);
-        Maquina fresadora2 = new Fresadora(Grosor.Medio, OrFresa.DiagonalDerecha, Posicion.IzCe);
+        Maquina fresadora2 = new Fresadora(Grosor.Medio, OrFresa.Diagonal, Posicion.IzCe);
         Maquina fresadora3 = new Fresadora(Grosor.Medio, OrFresa.Vertical, Posicion.IzIn);
         Maquina rotadora1 = new Rotadora(Sentido.Antihorario);
         //Maquina lijadora1 = new Lijadora(Posicion.CeSu, OrLija.Norte, Grosor.Fino);
-        Maquina fresadora4 = new Fresadora(Grosor.Grueso, OrFresa.DiagonalDerecha, Posicion.CeSu);
+        Maquina fresadora4 = new Fresadora(Grosor.Grueso, OrFresa.Diagonal, Posicion.CeSu);
         Maquina rotadora2 = new Rotadora(Sentido.Antihorario);
-        Maquina fresadora5 = new Fresadora(Grosor.Medio, OrFresa.DiagonalDerecha, Posicion.CeCe);
+        Maquina fresadora5 = new Fresadora(Grosor.Medio, OrFresa.Diagonal, Posicion.CeCe);
         Maquina taladradora1 = new Taladradora(Posicion.IzCe, Grosor.Medio);
         Maquina rotadora3 = new Rotadora(Sentido.Antihorario);
         Maquina fresadora6 = new Fresadora(Grosor.Fino, OrFresa.Vertical, Posicion.CeSu);
         Maquina fresadora7 = new Fresadora(Grosor.Medio, OrFresa.Vertical, Posicion.IzIn);
         Maquina rotadora4 = new Rotadora(Sentido.Horario);
         //Maquina lijadora2 = new Lijadora(Posicion.IzCe, OrLija.Sur, Grosor.Grueso);
-        Maquina fresadora8 = new Fresadora(Grosor.Fino, OrFresa.DiagonalDerecha, Posicion.CeCe);
+        Maquina fresadora8 = new Fresadora(Grosor.Fino, OrFresa.Diagonal, Posicion.CeCe);
         //Maquina lijadora3 = new Lijadora(Posicion.IzSu, OrLija.NorteSur, Grosor.Medio);
         Maquina fresadora9 = new Fresadora(Grosor.Medio, OrFresa.Vertical, Posicion.IzCe);
-        Maquina fresadora10 = new Fresadora(Grosor.Grueso, OrFresa.DiagonalDerecha, Posicion.IzSu);
+        Maquina fresadora10 = new Fresadora(Grosor.Grueso, OrFresa.Diagonal, Posicion.IzSu);
 
         // Crear la fábrica y añadir las máquinas
         Fabrica fabrica = new Fabrica();
