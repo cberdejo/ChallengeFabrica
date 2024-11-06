@@ -1,5 +1,5 @@
 package fabrica;
 
 public enum OrFresa {
-    Diagonal,Vertical
+    Diagonal,Vertical, Horizontal
 }
