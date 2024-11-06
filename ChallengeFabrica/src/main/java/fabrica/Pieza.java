@@ -30,12 +30,12 @@ public class Pieza {
             case IzSu:return cuadros[posOrigen];
             case CeSu:return cuadros[posOrigen+1];
             case DeSu:return cuadros[posOrigen+2];
-            case IzCe:return cuadros[posOrigen+3];
-            case CeCe:return cuadros[posOrigen+4];
-            case DeCe:return cuadros[posOrigen+5];
+            case DeCe:return cuadros[posOrigen+3];
+            case DeIn:return cuadros[posOrigen+4];
+            case CeIn:return cuadros[posOrigen+5];
             case IzIn:return cuadros[posOrigen+6];
-            case CeIn:return cuadros[posOrigen+7];
-            case DeIn:return cuadros[posOrigen+8];
+            case IzCe:return cuadros[posOrigen+7];
+            case CeCe:return cuadros[posOrigen+8];
         }
         return null;
     }
