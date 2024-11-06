@@ -22,7 +22,7 @@ public class Lijadora implements Maquina {
 
     );
 
-    public Fresadora(Grosor grosor, OrLija orLija, Posicion pos) {
+    public void Fresadora(Grosor grosor, OrLija orLija, Posicion pos) {
 
         if(!posicionesValidas.contains(posicion)){
             throw new IllegalArgumentException("Posición no válida: "+pos)
@@ -35,7 +35,7 @@ public class Lijadora implements Maquina {
     @Override
     public void actua(Pieza pieza) {
         /// Obtener el cuadro en la posicion de la pieza
-        Cuadro cuadro = pieza.getCuadro(posicion);
+        Cuadro cuadro = pieza.getCuadro();
 
         /// Lista de las taladradoras en el cuadro
         List<String> taladradoras = cuadro.getTaladradoras();

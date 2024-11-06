@@ -10,9 +10,9 @@ public class Fabrica {
         maquinas = new ArrayList<>();
     }
 
-    public static Fabrica aleatorio(int n){
-        //To do
-    }
+    //public static Fabrica aleatorio(int n){
+    //    //To do
+    //}
 
     public void marca(Pieza pieza){
         maquinas.forEach(maquina -> maquina.actua(pieza));
