@@ -14,6 +14,8 @@ public class Cuadro {
     private int grosorLijaOeste;
     private int grosorTaladradora;
 
+
+
     public Cuadro() {
         grosorFresadoraVertical = 0;
         grosorFresadoraHorizontal = 0;
@@ -32,8 +34,8 @@ public class Cuadro {
     }
 
     private void checkCorrectGrosor(int grosor){
-        if (grosor < 1 || grosor >3){
-            throw new IllegalArgumentException("Grosor incorrecto, debe ser entre 0 y 2");
+        if (grosor < 0 || grosor >3){
+            throw new IllegalArgumentException("Grosor incorrecto, debe ser entre 0 y 3");
         }
     }
 
@@ -118,7 +120,30 @@ public class Cuadro {
 
     ///
     protected void rotar(Sentido sentido){
-        //To Do
+        int grosorSwich = 0;
+        if (sentido == Sentido.Horario){
+            grosorSwich = grosorLijaNorte;
+            grosorLijaNorte = grosorLijaEste;
+            grosorLijaEste = grosorLijaSur;
+            grosorLijaSur = grosorLijaOeste;
+            grosorLijaOeste = grosorSwich;
+
+        }
+        else {
+            grosorSwich = grosorLijaNorte;
+            grosorLijaNorte = grosorLijaOeste;
+            grosorLijaOeste = grosorLijaSur;
+            grosorLijaSur = grosorLijaEste;
+            grosorLijaOeste = grosorSwich;
+
+        }
+        grosorSwich = grosorFresadoraVertical;
+        grosorFresadoraVertical = grosorFresadoraHorizontal;
+        grosorFresadoraDiagonalDerecha = grosorSwich;
+
+        grosorSwich = grosorFresadoraDiagonalDerecha;
+        grosorFresadoraDiagonalDerecha = grosorFresadoraDiagonalIzquierda;
+        grosorFresadoraDiagonalIzquierda = grosorSwich;
     }
 
     @Override
