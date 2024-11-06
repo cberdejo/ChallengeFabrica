@@ -82,7 +82,7 @@ public class Lijadora implements Maquina {
         switch (orLija) {
             case Norte:
                 if (cuadro.getGrosorLijaByOrLija(orLija) == 0) {
-
+                    
                     //añadir
                 }else if (cuadro.getGrosorLijaByOrLija(orLija) < grosor ) {
                     //eliminar lija con menor grosor
@@ -99,7 +99,10 @@ public class Lijadora implements Maquina {
             default:
         }
 
-        
+
+
+        // Si no se encontró ninguna lija con la misma orientación, añadir la nueva lija
+        cuadro.addLija("L" + getOrientacion() + grosorLijadora);
     }
 
 
