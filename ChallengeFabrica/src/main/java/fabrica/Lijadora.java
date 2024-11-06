@@ -1,14 +1,14 @@
 package fabrica;
 
-<<<<<<< HEAD
+
 import java.util.*;
-=======
+
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
->>>>>>> 8694006cf6d073d205fd86e316ab9967b46c092b
+
 
 public class Lijadora implements Maquina {
 
@@ -21,13 +21,7 @@ public class Lijadora implements Maquina {
             Posicion.IzCe,
             Posicion.IzIn,
             Posicion.CeSu,
-            Posicion.CeCe
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 8694006cf6d073d205fd86e316ab9967b46c092b
-    );
+            Posicion.CeCe);
 
     public Lijadora(Posicion posicion,OrLija or,Grosor grosor) {
         if (!posicionesValidas.contains(posicion)) {
@@ -74,7 +68,7 @@ public class Lijadora implements Maquina {
         }
 
         // Obtener el conjunto de lijas en el cuadro
-        Set<String> lijas = new HashSet<>(cuadro.getLijas());
+        List<String> lijas = (cuadro.getLijas());
 
 
         for (String lijaActual : lijas) {
@@ -87,7 +81,6 @@ public class Lijadora implements Maquina {
                 // Si el grosor de la nueva lija es mayor que el existente, reemplazarla
                 if (grosorLijadora > grosorExistente) {
                     cuadro.setLija("L" + getOrientacion() + grosorLijadora);
-                    System.out.println("Lija colocada o reemplazada: " + "L" + getOrientacion() + grosorLijadora);
                 }
             }
         }
