@@ -1,11 +1,9 @@
 package fabrica;
 
 import java.util.EnumSet;
-import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
-public class Taladradora implements Maquina{
+public class Taladradora implements Maquina {
     private Posicion posicion;
     private Grosor grosor;
 
@@ -24,27 +22,28 @@ public class Taladradora implements Maquina{
     }
 
 
-    private boolean  esLijaFina(int grosor){
-        return grosor==1;
+    private boolean esLijaFina(int grosor) {
+        return grosor == 1;
     }
 
-    private void eliminarLijasFinas(Cuadro cuadro){
+    private void eliminarLijasFinas(Cuadro cuadro) {
         int grosorLijaNorte = cuadro.getGrosorLijaNorte();
         int grosorLijaSur = cuadro.getGrosorLijaSur();
         int grosorLijaEste = cuadro.getGrosorLijaEste();
         int grosorLijaOeste = cuadro.getGrosorLijaOeste();
+
         if (esLijaFina(grosorLijaNorte)) {
             cuadro.setGrosorLijaNorte(0);
         }
-        if (esLijaFina(grosorLijaEste)){
+        if (esLijaFina(grosorLijaEste)) {
             cuadro.setGrosorLijaEste(0);
         }
 
-        if (esLijaFina(grosorLijaSur)){
+        if (esLijaFina(grosorLijaSur)) {
             cuadro.setGrosorLijaSur(0);
         }
 
-        if (esLijaFina(grosorLijaOeste)){
+        if (esLijaFina(grosorLijaOeste)) {
             cuadro.setGrosorLijaSur(0);
         }
     }
@@ -54,7 +53,7 @@ public class Taladradora implements Maquina{
         // Obtiene el cuadro en la posición de la pieza
         Cuadro cuadro = pieza.getCuadro(posicion);
 
-        if (grosor == Grosor.Grueso){
+        if (grosor == Grosor.Grueso) {
             // Obtiene la lista de lijas en el cuadro
             eliminarLijasFinas(cuadro);
         }
@@ -79,7 +78,7 @@ public class Taladradora implements Maquina{
 
         // Si el grosor actual es mayor que el existente o la taladradora está vacía
         if (grosor > grosorTaladradoraActual) {
-            cuadro.setGrosorTaladradora( grosor);
+            cuadro.setGrosorTaladradora(grosor);
         }
 
     }

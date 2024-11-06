@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-
+/**
 public class Lijadora implements Maquina {
 
     private Grosor grosor;
@@ -22,7 +22,11 @@ public class Lijadora implements Maquina {
 
     );
 
+<<<<<<< HEAD
     public void Fresadora(Grosor grosor, OrLija orLija, Posicion pos) {
+=======
+    public Lijadora(Grosor grosor, OrLija orLija, Posicion pos) {
+>>>>>>> d81c502a82fdd58ca34f91fad45d98a7a8828edf
 
         if(!posicionesValidas.contains(posicion)){
             throw new IllegalArgumentException("Posición no válida: "+pos)
@@ -94,3 +98,4 @@ public class Lijadora implements Maquina {
     }
 
 }
+*/
