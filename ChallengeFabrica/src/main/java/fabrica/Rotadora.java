@@ -13,7 +13,13 @@ public class Rotadora implements Maquina{
 
     @Override
     public void actua(Pieza pieza) {
+<<<<<<< Updated upstream
 
+=======
+        System.out.println(pieza.toString());
+>>>>>>> Stashed changes
         pieza.rotar(sentido);
+        System.out.println(pieza.toString());
+
     }
 }

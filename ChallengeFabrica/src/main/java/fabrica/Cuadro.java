@@ -29,6 +29,15 @@ public class Cuadro {
 
     }
 
+<<<<<<< Updated upstream
+=======
+    private void checkCorrectGrosor(int grosor){
+        if (grosor < 0 || grosor >3){
+            throw new IllegalArgumentException("Grosor incorrecto, debe ser entre 0 y 3");
+        }
+    }
+
+>>>>>>> Stashed changes
     public int getGrosorFresadoraVertical() {
         return grosorFresadoraVertical;
     }
