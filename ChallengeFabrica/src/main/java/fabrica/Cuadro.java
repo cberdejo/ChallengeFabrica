@@ -118,7 +118,30 @@ public class Cuadro {
 
     ///
     protected void rotar(Sentido sentido){
-        //To Do
+        int grosorSwich = 0;
+        if (sentido == Sentido.Horario){
+            grosorSwich = grosorLijaNorte;
+            grosorLijaNorte = grosorLijaEste;
+            grosorLijaEste = grosorLijaSur;
+            grosorLijaSur = grosorLijaOeste;
+            grosorLijaOeste = grosorSwich;
+
+        }
+        else {
+            grosorSwich = grosorLijaNorte;
+            grosorLijaNorte = grosorLijaOeste;
+            grosorLijaOeste = grosorLijaSur;
+            grosorLijaSur = grosorLijaEste;
+            grosorLijaOeste = grosorSwich;
+
+        }
+        grosorSwich = grosorFresadoraVertical;
+        grosorFresadoraVertical = grosorFresadoraHorizontal;
+        grosorFresadoraHorizontal = grosorSwich;
+
+        grosorSwich = grosorFresadoraDiagonalDerecha;
+        grosorFresadoraDiagonalDerecha = grosorFresadoraDiagonalIzquierda;
+        grosorFresadoraDiagonalIzquierda = grosorSwich;
     }
 
     @Override

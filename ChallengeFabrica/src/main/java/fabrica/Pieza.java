@@ -25,7 +25,18 @@ public class Pieza {
     }
 
     public Cuadro getCuadro(Posicion posicion) {
-        return cuadros.get(posicionMap.get(posicion));
+        switch (posicion){
+            case IzSu:return cuadros[posOrigen];
+            case CeSu:return cuadros[posOrigen+1];
+            case DeSu:return cuadros[posOrigen+2];
+            case DeCe:return cuadros[posOrigen+3];
+            case DeIn:return cuadros[posOrigen+4];
+            case CeIn:return cuadros[posOrigen+5];
+            case IzIn:return cuadros[posOrigen+6];
+            case IzCe:return cuadros[posOrigen+7];
+            case CeCe:return cuadros[posOrigen+8];
+        }
+        return null;
     }
 
     public void rotar(Sentido sentido) {
