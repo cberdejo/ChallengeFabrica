@@ -207,7 +207,7 @@ public class Cuadro {
         if (grosorFresadoraDiagonalDerecha != 0) result.append("FD").append(Integer.toString(grosorFresadoraDiagonalDerecha));
         else result.append(empty);
 
-        if (grosorTaladradora != 0) result.append("T").append(Integer.toString(grosorTaladradora));
+        if (grosorTaladradora != 0) result.append("TL").append(Integer.toString(grosorTaladradora));
         else result.append(empty);
 
 
