@@ -3,8 +3,10 @@ import fabrica.*;
 public class Main2 {
     public static void main(String[] args) {
 
+        /// Se declara y se inicializa la fabrica
         Fabrica fabrica = new Fabrica();
 
+        /// Se añaden las maquinas a la fabrica
         fabrica.addMaquina(new Fresadora(Grosor.Medio, OrFresa.Vertical, Posicion.IzCe));
         fabrica.addMaquina(new Fresadora(Grosor.Medio, OrFresa.Vertical, Posicion.IzIn));
         fabrica.addMaquina(new Fresadora(Grosor.Grueso, OrFresa.Diagonal, Posicion.IzIn));
@@ -20,9 +22,10 @@ public class Main2 {
         fabrica.addMaquina(new Fresadora(Grosor.Medio, OrFresa.Vertical, Posicion.IzCe));
         fabrica.addMaquina(new Taladradora(Posicion.IzCe,Grosor.Fino));
         
-
+        /// Se crea una pieza apra procesar
         Pieza pieza = new Pieza();
 
+        /// Cada maquina actua sobre la pieza
         for (Maquina maquina : fabrica.getMaquinas()) {
             maquina.actua(pieza);
         }
