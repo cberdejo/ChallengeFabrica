@@ -14,6 +14,9 @@ public class Taladradora implements Maquina {
         if (!posicionesValidas.contains(posicion)) {
             throw new IllegalArgumentException("Posición inválida: " + posicion);
         }
+
+        this.posicion = posicion;
+        this.grosor = grosor;
     }
 
     ///Devuelve true si el `grosor` es 1
