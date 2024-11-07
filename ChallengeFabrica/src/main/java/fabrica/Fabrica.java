@@ -1,15 +1,16 @@
 package fabrica;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
 public class Fabrica {
     private List<Maquina> maquinas;
-    private static Random alea = new Random();
+    private static final Random alea = new Random();
 
     public Fabrica() {
-        maquinas = new ArrayList<>();
+        maquinas = new LinkedList<>();
     }
     public Fabrica(List<Maquina> maquinas) {
         this.maquinas = maquinas;
@@ -23,35 +24,35 @@ public class Fabrica {
     /// @param n	El número	de máquinas	de la fábrica	resultante.
     /// @return Una	fábrica	aleatoria.
     public static Fabrica aleatorio(int n) {
-        List<Maquina> maquinas = new ArrayList<>();
+        List<Maquina> maquinas = new LinkedList<>();
+        int numMaquinas =4;
 
         for (int i = 0; i < n; i++) {
             Maquina nuevaMaquina;
 
             do {
-                int tipoMaquina = alea.nextInt(4);
+                int tipoMaquina = alea.nextInt(numMaquinas);
                 nuevaMaquina = switch (tipoMaquina) {
                     case 0 -> new Fresadora(
+                            Posicion.values()[alea.nextInt(Posicion.values().length)],
                             Grosor.values()[alea.nextInt(Grosor.values().length)],
-                            OrFresa.values()[alea.nextInt(OrFresa.values().length)],
-                            Posicion.values()[alea.nextInt(Posicion.values().length)]
+                            OrFresa.values()[alea.nextInt(OrFresa.values().length)]
+
                     );
                     case 1 -> new Lijadora(
-                            Grosor.values()[alea.nextInt(Grosor.values().length)],
+                            Posicion.values()[alea.nextInt(Posicion.values().length)],
                             OrLija.values()[alea.nextInt(OrLija.values().length)],
-                            Posicion.values()[alea.nextInt(Posicion.values().length)]
+                            Grosor.values()[alea.nextInt(Grosor.values().length)]
                     );
-                    case 2 -> {
-                        Sentido sentido = Sentido.values()[alea.nextInt(Sentido.values().length)];
-                        yield new Rotadora(sentido);
-                    }
+                    case 2 -> new Rotadora(Sentido.values()[alea.nextInt(Sentido.values().length)]);
+
                     case 3 -> new Taladradora(
                             Posicion.values()[alea.nextInt(Posicion.values().length)],
                             Grosor.values()[alea.nextInt(Grosor.values().length)]
                     );
                     default -> null;
                 };
-            } while (nuevaMaquina instanceof Rotadora && rotadoraIncorrecta(maquinas, nuevaMaquina));
+            } while (  rotadoraIncorrecta(maquinas, nuevaMaquina));
 
             maquinas.add(nuevaMaquina);
         }
@@ -65,19 +66,23 @@ public class Fabrica {
     ///- Si la `Rotadora` es la primera `Maquina` que se intenta insertar.
     ///- Si la `Maquina` inmediatamente anterior es una `Rotadora` y la `Maquina` actual es una `Rotadora` y el sentido de la `Rotadora` inmediatamente anterior es *opuesto* al sentido de la `Rotadora` actual.
     private static boolean rotadoraIncorrecta(List<Maquina> maquinas, Maquina nuevaMaquina) {
-        if (maquinas.isEmpty() && nuevaMaquina instanceof Rotadora) {
+        if (!(nuevaMaquina instanceof Rotadora)) {
+            return false;
+        }
+        if (maquinas.isEmpty() ) {
             return true; // Evitar que sea la primera máquina.
         }
 
-        if (!maquinas.isEmpty() && nuevaMaquina instanceof Rotadora) {
-            Maquina anterior = maquinas.getLast();
-            if (anterior instanceof Rotadora) {
-                return ((Rotadora) anterior).getSentido() != ((Rotadora) nuevaMaquina).getSentido();
-            }
+        Maquina anterior = maquinas.getLast();
+        if (anterior instanceof Rotadora) {
+            return ((Rotadora) anterior).getSentido() != ((Rotadora) nuevaMaquina).getSentido();
         }
+
 
         return false;
     }
+
+
     public void marca(Pieza pieza){
         maquinas.forEach(maquina -> maquina.actua(pieza));
     }

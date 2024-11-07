@@ -1,21 +1,13 @@
 package fabrica;
 
 import java.util.EnumSet;
-import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 public class Taladradora implements Maquina {
     private Posicion posicion;
     private Grosor grosor;
 
-    static Set<Posicion> posicionesValidas = EnumSet.of(
-            Posicion.IzSu,
-            Posicion.IzCe,
-            Posicion.IzIn,
-            Posicion.CeSu,
-            Posicion.CeCe
-    );
+
 
     public Taladradora(Posicion posicion, Grosor grosor) {
         if (!posicionesValidas.contains(posicion)) {
@@ -33,6 +25,7 @@ public class Taladradora implements Maquina {
         int grosorLijaSur = cuadro.getGrosorLijaSur();
         int grosorLijaEste = cuadro.getGrosorLijaEste();
         int grosorLijaOeste = cuadro.getGrosorLijaOeste();
+
         if (esLijaFina(grosorLijaNorte)) {
             cuadro.setGrosorLijaNorte(0);
         }
@@ -59,27 +52,16 @@ public class Taladradora implements Maquina {
             eliminarLijasFinas(cuadro);
         }
 
-        // Determinar el grosor de la taladradora basado en el grosor de esta pieza
-        int grosor;
-        switch (this.grosor) {
-            case Grueso:
-                grosor = 3;
-                break;
-            case Medio:
-                grosor = 2;
-                break;
-            case Fino:
-            default:
-                grosor = 1;
-                break;
-        }
+
+        int grosorAsNumber = Maquina.getGrosorAsNum(grosor);
+
 
         // Obtener el estado actual de la taladradora en el cuadro
         int grosorTaladradoraActual = cuadro.getGrosorTaladradora();
 
         // Si el grosor actual es mayor que el existente o la taladradora está vacía
-        if (grosor > grosorTaladradoraActual) {
-            cuadro.setGrosorTaladradora(grosor);
+        if (grosorAsNumber > grosorTaladradoraActual) {
+            cuadro.setGrosorTaladradora(grosorAsNumber);
         }
 
     }

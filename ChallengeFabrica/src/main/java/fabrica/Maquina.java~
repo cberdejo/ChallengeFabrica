@@ -12,7 +12,7 @@ public interface Maquina {
             Posicion.CeCe
     );
 
-    static int getGrosorAsNum(Grosor grosor) {
+    default int getGrosorAsNum(Grosor grosor) {
         return switch (grosor) {
             case Grueso -> 3;
             case Medio -> 2;

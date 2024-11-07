@@ -14,6 +14,8 @@ public class Cuadro {
     private int grosorLijaOeste;
     private int grosorTaladradora;
 
+
+
     public Cuadro() {
         grosorFresadoraVertical = 0;
         grosorFresadoraHorizontal = 0;
@@ -27,50 +29,15 @@ public class Cuadro {
 
     }
 
-    private void checkCorrectGrosor(int grosor){
-        if (grosor < 1 || grosor >3){
-            throw new IllegalArgumentException("Grosor incorrecto, debe ser entre 0 y 2");
-        }
-    }
-
     public int getGrosorFresadoraVertical() {
         return grosorFresadoraVertical;
     }
 
-    public int getGrosorLijaByOrLija(OrLija orLija) {
-        switch (orLija) {
-            case OrLija.Norte:
-                return grosorLijaNorte;
-            case OrLija.Sur:
-                return grosorLijaSur;
-            case OrLija.Este:
-                return grosorLijaEste;
-            case OrLija.Oeste:
-                return grosorLijaOeste;
-            default:
-                return 0;
+    private void checkCorrectGrosor(int grosor){
+        if (grosor < 0 || grosor >3){
+            throw new IllegalArgumentException("Grosor incorrecto, debe ser entre 0 y 3");
         }
     }
-    public void setGrosorLijaByOrLija(int grosor, OrLija orLija) {
-        switch (orLija) {
-            case OrLija.Norte:
-                setGrosorLijaNorte(grosor);
-                break;
-            case OrLija.Sur:
-                setGrosorLijaSur(grosor);
-                break;
-            case OrLija.Este:
-                setGrosorLijaEste(grosor);
-                break;
-            case OrLija.Oeste:
-                setGrosorLijaOeste(grosor);
-                break;
-            default:
-                break;
-        }
-    }
-
-
 
     public void setGrosorFresadoraVertical(int grosorFresadoraVertical) {
         checkCorrectGrosor(grosorFresadoraVertical);
@@ -172,7 +139,7 @@ public class Cuadro {
         }
         grosorSwich = grosorFresadoraVertical;
         grosorFresadoraVertical = grosorFresadoraHorizontal;
-        grosorFresadoraHorizontal = grosorSwich;
+        grosorFresadoraDiagonalDerecha = grosorSwich;
 
         grosorSwich = grosorFresadoraDiagonalDerecha;
         grosorFresadoraDiagonalDerecha = grosorFresadoraDiagonalIzquierda;
@@ -197,7 +164,6 @@ public class Cuadro {
 
         return result.toString();
     }
-
 
 
 }
