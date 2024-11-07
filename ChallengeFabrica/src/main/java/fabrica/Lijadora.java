@@ -10,13 +10,7 @@ public class Lijadora implements Maquina {
     private OrLija orLija;
     private Posicion posicion;
 
-    /// Conjunto d e posiciones validas para las lijas
-    static Set<Posicion> posicionesValidas = EnumSet.of(
-            Posicion.IzSu,
-            Posicion.IzCe,
-            Posicion.IzIn,
-            Posicion.CeSu,
-            Posicion.CeCe);
+
 
     /// Constructor de la clase lijadora
     /// @param posicion La posicion en la que se coloca la lija
@@ -48,25 +42,13 @@ public class Lijadora implements Maquina {
     /// @param cuadro Cuadro sobre el que actuara la lijadora
     /// @param orLija La orientacion de la lija
     private void nuevaLijadora(Cuadro cuadro, OrLija orLija){
-        int grosorNuevaLijadora;
 
         /// Determina el grosor basado en el tipo de grosor (Fino, Medio, Grueso)
-        switch (this.grosor) {
-            case Grueso:
-                grosorNuevaLijadora = 3;
-                break;
-            case Medio:
-                grosorNuevaLijadora = 2;
-                break;
-            case Fino:
-            default:
-                grosorNuevaLijadora = 1;
-                break;
-        }
+        int grosorNuevaLijadora = Maquina.getGrosorAsNum(grosor);;
 
-        if (cuadro.getGrosorTaladradora() == 3 && grosorNuevaLijadora == 1) {
-            return; /// Si hay una taladradora no se puede poner una nueva lija fina
-        } else {
+
+        if (!(cuadro.getGrosorTaladradora() == 3 && grosorNuevaLijadora == 1)) {
+
             /// Actualizacion de las lijas en funcion de su orientacion
             switch (orLija) {
                 case Norte:

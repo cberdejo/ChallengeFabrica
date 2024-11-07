@@ -35,9 +35,10 @@ public class Fabrica {
                 nuevaMaquina = switch (tipoMaquina) {
                     case 0 -> new Fresadora(
                             Posicion.values()[alea.nextInt(Posicion.values().length)],
-                            Grosor.values()[alea.nextInt(Grosor.values().length)],
-                            OrFresa.values()[alea.nextInt(OrFresa.values().length)]
-                    );
+                            OrFresa.values()[alea.nextInt(OrFresa.values().length)],
+                            Grosor.values()[alea.nextInt(Grosor.values().length)]
+
+                            );
                     case 1 -> new Lijadora(
                             Posicion.values()[alea.nextInt(Posicion.values().length)],
                             OrLija.values()[alea.nextInt(OrLija.values().length)],
