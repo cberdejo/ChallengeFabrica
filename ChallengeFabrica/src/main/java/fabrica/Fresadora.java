@@ -34,16 +34,6 @@ public class Fresadora implements Maquina {
         }
     }
 
-    ///
-    /// Conjunto de posiciones válidas para aplicar la fresadora en una pieza.
-    ///
-    static Set<Posicion> posicionesValidas = EnumSet.of(
-            Posicion.IzSu,
-            Posicion.IzCe,
-            Posicion.IzIn,
-            Posicion.CeSu,
-            Posicion.CeCe
-    );
 
     ///
     /// Método que realiza la acción de fresado sobre una pieza.
