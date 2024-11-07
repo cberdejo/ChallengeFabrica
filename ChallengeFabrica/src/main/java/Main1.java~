@@ -18,7 +18,7 @@ public class Main1 {
         Maquina rotadora4 = new Rotadora(Sentido.Horario);
         Maquina lijadora2 = new Lijadora(Posicion.IzCe, OrLija.Sur, Grosor.Grueso);
         Maquina fresadora8 = new Fresadora( Posicion.CeCe, OrFresa.Diagonal,Grosor.Fino);
-        Maquina lijadora3 = new Lijadora(Posicion.IzSu,OrLija.Sur, Grosor.Medio);
+        Maquina lijadora3 = new Lijadora(Posicion.IzSu,OrLija.Sur Grosor.Medio);
         Maquina fresadora9 = new Fresadora( Posicion.IzCe, OrFresa.Vertical,Grosor.Medio);
         Maquina fresadora10 = new Fresadora( Posicion.IzSu, OrFresa.Diagonal,Grosor.Grueso);
 
