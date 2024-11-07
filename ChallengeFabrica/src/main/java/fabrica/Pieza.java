@@ -27,26 +27,40 @@ public class Pieza {
     }
 
     public Cuadro getCuadro(Posicion posicion) {
-        if (posicion==null){
+        if (posicion == null) {
             return null;
         }
-            switch (posicion){
-                case IzSu:return cuadros[posOrigen%9];
-                case CeSu:return cuadros[(posOrigen+1)%9];
-                case DeSu:return cuadros[(posOrigen+2)%9];
-                case DeCe:return cuadros[(posOrigen+3)%9];
-                case DeIn:return cuadros[(posOrigen+4)%9];
-                case CeIn:return cuadros[(posOrigen+5)%9];
-                case IzIn:return cuadros[(posOrigen+6)%9];
-                case IzCe:return cuadros[(posOrigen+7)%9];
-                case CeCe:return cuadros[(posOrigen+8)%9];
-            }
-            return null;
+
+        int index;
+        switch (posicion) {
+            case IzSu: index = (posOrigen    ) % 8; break;
+            case CeSu: index = (posOrigen + 1) % 8; break;
+            case DeSu: index = (posOrigen + 2) % 8; break;
+            case DeCe: index = (posOrigen + 3) % 8; break;
+            case DeIn: index = (posOrigen + 4) % 8; break;
+            case CeIn: index = (posOrigen + 5) % 8; break;
+            case IzIn: index = (posOrigen + 6) % 8; break;
+            case IzCe: index = (posOrigen + 7) % 8; break;
+            case CeCe: return cuadros[8]; // Centro (no rota)
+            default: return null;
+        }
+
+        return cuadros[index];
     }
 
+
     public void rotar(Sentido sentido) {
+        // Ajustar posOrigen según el sentido, solo afectando a los bordes (0 a 7)
+        if (sentido == Sentido.Antihorario) {
+            posOrigen = (posOrigen + 2) % 8; // Rotación horaria, avanza 2 posiciones
+        } else {
+            posOrigen = (posOrigen + 6) % 8; // Rotación antihoraria, retrocede 2 posiciones
+        }
+
+        // Llamamos a rotaCuadros para rotar visualmente cada cuadro de borde en su sitio.
         rotaCuadros(sentido);
     }
+
 
     public void rotaCuadros(Sentido sentido) {
         for (int i = 0; i < cuadros.length; i++) {
