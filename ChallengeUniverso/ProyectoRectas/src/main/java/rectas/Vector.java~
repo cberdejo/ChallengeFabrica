@@ -32,7 +32,7 @@ public record Vector(Punto extremo) {
      * @return Un nuevo vector resultado de la suma.
      */
     public Vector sum(Vector v) {
-        return new Vector(this.x() + v.x(), this.y() + v.y());
+        return new Vector(this.extremo.x() + v.extremo.x(), this.extremo.y() + v.extremo.y());
     }
 
     /**
@@ -41,7 +41,7 @@ public record Vector(Punto extremo) {
      * @return Un nuevo vector ortogonal al actual.
      */
     public Vector ortogonal() {
-        return new Vector(-y(), x());
+        return new Vector(-extremo.y(), extremo.x());
     }
 
     /**
@@ -51,7 +51,7 @@ public record Vector(Punto extremo) {
      * @return `true` si los vectores son paralelos, `false` en caso contrario.
      */
     public boolean esParalelo(Vector otro) {
-        return Math.abs(this.x() * otro.y() - this.y() * otro.x()) < EPSILON;
+        return Math.abs(this.extremo.x() * otro.extremo.y() - this.extremo.y() * otro.extremo.x()) < EPSILON;
     }
 
     /**
@@ -60,7 +60,7 @@ public record Vector(Punto extremo) {
      * @return El módulo del vector.
      */
     public double modulo() {
-        return Math.sqrt(x() * x() + y() * y());
+        return Math.sqrt(extremo.x() * extremo.x() + extremo.y() * extremo.y());
 
     }
 
@@ -74,7 +74,7 @@ public record Vector(Punto extremo) {
         if (modulo == 0) {
             throw new RuntimeException("El módulo del vector es cero, no se puede definir dirección.");
         }
-        return new Vector(x() / modulo, y() / modulo);
+        return new Vector(extremo.x() / modulo, extremo.y() / modulo);
     }
 
     /**
@@ -85,7 +85,7 @@ public record Vector(Punto extremo) {
      *         dado.
      */
     public Punto extremoDesde(Punto org) {
-        return new Punto(org.x() + x(), org.y() + y());
+        return new Punto(org.x() + extremo.x(), org.y() + extremo.y());
     }
 
     /**
@@ -127,7 +127,7 @@ public record Vector(Punto extremo) {
     public Vector escalar(double factor) {
         return new Vector(new Punto(this.x() * factor, this.y() * factor));
     }
-
+    
     /**
      * Representación en cadena del vector.
      *

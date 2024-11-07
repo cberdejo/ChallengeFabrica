@@ -6,23 +6,22 @@ import java.util.List;
 import java.util.Map;
 
 public class Pieza {
-    private int posOrigen; //Posicion del origen de coordenadas (posicion [0,0] de la matriz)
     private static Map<Posicion, Integer> posicionMap = Map.of(
             Posicion.IzSu, 0,
             Posicion.CeSu, 1,
             Posicion.DeSu, 2,
-            Posicion.DeCe, 3,
-            Posicion.DeIn, 4,
-            Posicion.CeIn, 5,
+            Posicion.IzCe, 3,
+            Posicion.CeCe, 4,
+            Posicion.DeCe, 5,
             Posicion.IzIn, 6,
-            Posicion.IzCe, 7,
-            Posicion.CeCe, 8
+            Posicion.CeIn, 7,
+            Posicion.DeIn, 8
     );
-    public Cuadro[] cuadros;
+    private List<Cuadro> cuadros;
 
     public Pieza() {
-        posOrigen = 0;
-        cuadros = new Cuadro[9];
+        //To Do
+
     }
 
     public Cuadro getCuadro(Posicion posicion) {
@@ -30,36 +29,22 @@ public class Pieza {
             case IzSu:return cuadros[posOrigen];
             case CeSu:return cuadros[posOrigen+1];
             case DeSu:return cuadros[posOrigen+2];
-            case IzCe:return cuadros[posOrigen+3];
-            case CeCe:return cuadros[posOrigen+4];
-            case DeCe:return cuadros[posOrigen+5];
+            case DeCe:return cuadros[posOrigen+3];
+            case DeIn:return cuadros[posOrigen+4];
+            case CeIn:return cuadros[posOrigen+5];
             case IzIn:return cuadros[posOrigen+6];
-            case CeIn:return cuadros[posOrigen+7];
-            case DeIn:return cuadros[posOrigen+8];
+            case IzCe:return cuadros[posOrigen+7];
+            case CeCe:return cuadros[posOrigen+8];
         }
         return null;
     }
 
     public void rotar(Sentido sentido) {
-        if (sentido == Sentido.Horario){
-            posOrigen = posOrigen -2;
-            if (posOrigen <0){
-                posOrigen = posOrigen + 8;
-            }
-        }
-        else {
-            posOrigen = posOrigen +2;
-            if (posOrigen >7){
-                posOrigen = posOrigen - 8;
-            }
-        }
-        rotaCuadros(sentido);
-    }
+        //To Do
+        //mod 8
 
-    public void rotaCuadros(Sentido sentido) {
-        for (int i = 0; i < cuadros.length; i++) {
-            cuadros[i].rotar(sentido);
-        }
+        //rotar cuadros por dentro
+        cuadros.forEach(cuadro -> cuadro.rotar(sentido));
     }
 
     @Override
