@@ -28,6 +28,7 @@ public class Lijadora implements Maquina {
     /// @param pieza La pieza sobre la que se actua
     @Override
     public void actua(Pieza pieza) {
+        System.out.println(pieza);
         /// Obtener el cuadro en la posición de la pieza
         Cuadro cuadro = pieza.getCuadro(posicion);
         /// Metodo para aplicar la lijadora

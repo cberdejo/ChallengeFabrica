@@ -53,6 +53,7 @@ public class Taladradora implements Maquina {
     /// 1. Actualiza el grosor de la taladradora en el cuadro, en caso de tener que hacerlo
     @Override
     public void actua(Pieza pieza) {
+        System.out.println(pieza);
         // Obtiene el cuadro en la posición de la pieza
         if (posicion == null){
             System.out.println("aaaa");

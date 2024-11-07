@@ -46,6 +46,7 @@ public class Fresadora implements Maquina {
     @Override
     public void actua(Pieza pieza) {
         // Obtiene el cuadro en la posición de la pieza
+        System.out.println(pieza.toString());
         Cuadro cuadro = pieza.getCuadro(pos);
 
         // Si ya existe una fresadora anterior en la posición, se actualiza el grosor.
