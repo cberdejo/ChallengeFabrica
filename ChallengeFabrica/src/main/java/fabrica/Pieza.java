@@ -27,34 +27,24 @@ public class Pieza {
     }
 
     public Cuadro getCuadro(Posicion posicion) {
-        switch (posicion){
-            case IzSu:return cuadros[posOrigen];
-            case CeSu:return cuadros[posOrigen+1];
-            case DeSu:return cuadros[posOrigen+2];
-            case DeCe:return cuadros[posOrigen+3];
-            case DeIn:return cuadros[posOrigen+4];
-            case CeIn:return cuadros[posOrigen+5];
-            case IzIn:return cuadros[posOrigen+6];
-            case IzCe:return cuadros[posOrigen+7];
-            case CeCe:return cuadros[posOrigen+8];
-
+        if (posicion==null){
+            return null;
         }
-        return null;
+            switch (posicion){
+                case IzSu:return cuadros[posOrigen%9];
+                case CeSu:return cuadros[(posOrigen+1)%9];
+                case DeSu:return cuadros[(posOrigen+2)%9];
+                case DeCe:return cuadros[(posOrigen+3)%9];
+                case DeIn:return cuadros[(posOrigen+4)%9];
+                case CeIn:return cuadros[(posOrigen+5)%9];
+                case IzIn:return cuadros[(posOrigen+6)%9];
+                case IzCe:return cuadros[(posOrigen+7)%9];
+                case CeCe:return cuadros[(posOrigen+8)%9];
+            }
+            return null;
     }
 
     public void rotar(Sentido sentido) {
-        if (sentido == Sentido.Horario){
-            posOrigen = posOrigen -2;
-            if (posOrigen <0){
-                posOrigen = posOrigen + 8;
-            }
-        }
-        else {
-            posOrigen = posOrigen +2;
-            if (posOrigen >7){
-                posOrigen = posOrigen - 8;
-            }
-        }
         rotaCuadros(sentido);
     }
 

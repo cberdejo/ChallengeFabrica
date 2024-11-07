@@ -51,6 +51,9 @@ public class Taladradora implements Maquina {
     @Override
     public void actua(Pieza pieza) {
         // Obtiene el cuadro en la posición de la pieza
+        if (posicion == null){
+            System.out.println("aaaa");
+        }
         Cuadro cuadro = pieza.getCuadro(posicion);
 
         if (grosor == Grosor.Grueso) {
