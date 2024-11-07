@@ -21,6 +21,9 @@ public class Pieza {
     public Pieza() {
         posOrigen = 0;
         cuadros = new Cuadro[9];
+        for (int i = 0; i < 9; i++) {
+            cuadros[i] = new Cuadro();
+        }
     }
 
     public Cuadro getCuadro(Posicion posicion) {
