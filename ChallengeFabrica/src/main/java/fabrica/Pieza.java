@@ -1,27 +1,26 @@
 package fabrica;
 
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Pieza {
+    private int posOrigen; //Posicion del origen de coordenadas (posicion [0,0] de la matriz)
     private static Map<Posicion, Integer> posicionMap = Map.of(
             Posicion.IzSu, 0,
             Posicion.CeSu, 1,
             Posicion.DeSu, 2,
-            Posicion.IzCe, 3,
-            Posicion.CeCe, 4,
-            Posicion.DeCe, 5,
+            Posicion.DeCe, 3,
+            Posicion.DeIn, 4,
+            Posicion.CeIn, 5,
             Posicion.IzIn, 6,
-            Posicion.CeIn, 7,
-            Posicion.DeIn, 8
+            Posicion.IzCe, 7,
+            Posicion.CeCe, 8
     );
-    private List<Cuadro> cuadros;
+    public Cuadro[] cuadros;
 
     public Pieza() {
-        //To Do
-
+        posOrigen = 0;
+        cuadros = new Cuadro[9];
     }
 
     public Cuadro getCuadro(Posicion posicion) {
@@ -35,16 +34,31 @@ public class Pieza {
             case IzIn:return cuadros[posOrigen+6];
             case IzCe:return cuadros[posOrigen+7];
             case CeCe:return cuadros[posOrigen+8];
+
         }
         return null;
     }
 
     public void rotar(Sentido sentido) {
-        //To Do
-        //mod 8
+        if (sentido == Sentido.Horario){
+            posOrigen = posOrigen -2;
+            if (posOrigen <0){
+                posOrigen = posOrigen + 8;
+            }
+        }
+        else {
+            posOrigen = posOrigen +2;
+            if (posOrigen >7){
+                posOrigen = posOrigen - 8;
+            }
+        }
+        rotaCuadros(sentido);
+    }
 
-        //rotar cuadros por dentro
-        cuadros.forEach(cuadro -> cuadro.rotar(sentido));
+    public void rotaCuadros(Sentido sentido) {
+        for (int i = 0; i < cuadros.length; i++) {
+            cuadros[i].rotar(sentido);
+        }
     }
 
     @Override
@@ -71,4 +85,3 @@ public class Pieza {
         return sb.toString();
     }
 }
-

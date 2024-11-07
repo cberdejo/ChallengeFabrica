@@ -28,7 +28,7 @@ public class Cuadro {
     }
 
     private void checkCorrectGrosor(int grosor){
-        if (grosor < 1 || grosor >3){
+        if (grosor < 0 || grosor >3){
             throw new IllegalArgumentException("Grosor incorrecto, debe ser entre 0 y 2");
         }
     }
@@ -167,7 +167,7 @@ public class Cuadro {
             grosorLijaNorte = grosorLijaOeste;
             grosorLijaOeste = grosorLijaSur;
             grosorLijaSur = grosorLijaEste;
-            grosorLijaOeste = grosorSwich;
+            grosorLijaEste = grosorSwich;
 
         }
         grosorSwich = grosorFresadoraVertical;
