@@ -14,8 +14,6 @@ public class Cuadro {
     private int grosorLijaOeste;
     private int grosorTaladradora;
 
-
-
     public Cuadro() {
         grosorFresadoraVertical = 0;
         grosorFresadoraHorizontal = 0;
@@ -29,15 +27,50 @@ public class Cuadro {
 
     }
 
+    private void checkCorrectGrosor(int grosor){
+        if (grosor < 0 || grosor >3){
+            throw new IllegalArgumentException("Grosor incorrecto, debe ser entre 0 y 2");
+        }
+    }
+
     public int getGrosorFresadoraVertical() {
         return grosorFresadoraVertical;
     }
 
-    private void checkCorrectGrosor(int grosor){
-        if (grosor < 0 || grosor >3){
-            throw new IllegalArgumentException("Grosor incorrecto, debe ser entre 0 y 3");
+    public int getGrosorLijaByOrLija(OrLija orLija) {
+        switch (orLija) {
+            case OrLija.Norte:
+                return grosorLijaNorte;
+            case OrLija.Sur:
+                return grosorLijaSur;
+            case OrLija.Este:
+                return grosorLijaEste;
+            case OrLija.Oeste:
+                return grosorLijaOeste;
+            default:
+                return 0;
         }
     }
+    public void setGrosorLijaByOrLija(int grosor, OrLija orLija) {
+        switch (orLija) {
+            case OrLija.Norte:
+                setGrosorLijaNorte(grosor);
+                break;
+            case OrLija.Sur:
+                setGrosorLijaSur(grosor);
+                break;
+            case OrLija.Este:
+                setGrosorLijaEste(grosor);
+                break;
+            case OrLija.Oeste:
+                setGrosorLijaOeste(grosor);
+                break;
+            default:
+                break;
+        }
+    }
+
+
 
     public void setGrosorFresadoraVertical(int grosorFresadoraVertical) {
         checkCorrectGrosor(grosorFresadoraVertical);
@@ -134,12 +167,12 @@ public class Cuadro {
             grosorLijaNorte = grosorLijaOeste;
             grosorLijaOeste = grosorLijaSur;
             grosorLijaSur = grosorLijaEste;
-            grosorLijaOeste = grosorSwich;
+            grosorLijaEste = grosorSwich;
 
         }
         grosorSwich = grosorFresadoraVertical;
         grosorFresadoraVertical = grosorFresadoraHorizontal;
-        grosorFresadoraDiagonalDerecha = grosorSwich;
+        grosorFresadoraHorizontal = grosorSwich;
 
         grosorSwich = grosorFresadoraDiagonalDerecha;
         grosorFresadoraDiagonalDerecha = grosorFresadoraDiagonalIzquierda;
@@ -149,21 +182,38 @@ public class Cuadro {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-
+        String empty = "   ";
         // Añadimos cada valor si es distinto de 0
         if (grosorLijaNorte != 0) result.append("LN").append(Integer.toString(grosorLijaNorte));
+        else result.append(empty);
         if (grosorLijaEste != 0) result.append("LE").append(Integer.toString(grosorLijaEste));
+        else result.append(empty);
+
         if (grosorLijaSur != 0) result.append("LS").append(Integer.toString(grosorLijaSur));
+        else result.append(empty);
+
         if (grosorLijaOeste != 0) result.append("LO").append(Integer.toString(grosorLijaOeste));
+        else result.append(empty);
+
         if (grosorFresadoraVertical != 0) result.append("FV").append(Integer.toString(grosorFresadoraVertical));
+        else result.append(empty);
+
         if (grosorFresadoraHorizontal != 0) result.append("FH").append(Integer.toString(grosorFresadoraHorizontal));
+        else result.append(empty);
+
         if (grosorFresadoraDiagonalIzquierda != 0) result.append("FI").append(Integer.toString(grosorFresadoraDiagonalIzquierda));
+        else result.append(empty);
+
         if (grosorFresadoraDiagonalDerecha != 0) result.append("FD").append(Integer.toString(grosorFresadoraDiagonalDerecha));
+        else result.append(empty);
+
         if (grosorTaladradora != 0) result.append("T").append(Integer.toString(grosorTaladradora));
+        else result.append(empty);
 
 
         return result.toString();
     }
+
 
 
 }

@@ -3,13 +3,13 @@ package fabrica;
 import java.util.EnumSet;
 import java.util.Set;
 
-///
+
 /// La clase `Fresadora` representa una máquina fresadora utilizada en una fábrica para modificar
 /// los cuadros de una pieza mediante el uso de fresas. La fresadora puede tener distintos grosores
 /// y orientaciones (Vertical, Horizontal, Diagonal), y se aplica en las posiciones específicas de la pieza.
 ///
 /// Implementa la interfaz `Maquina`, lo que permite que interactúe con el sistema de procesamiento de piezas.
-///
+
 public class Fresadora implements Maquina {
 
     private Grosor grosor; //< Grosor de la fresadora (Fino, Medio, Grueso)
@@ -25,7 +25,7 @@ public class Fresadora implements Maquina {
     ///
     /// @throws IllegalArgumentException Si la posición proporcionada no es válida.
     ///
-    public Fresadora(Grosor grosor, OrFresa orFresa, Posicion pos) {
+    public Fresadora( Posicion pos, OrFresa orFresa,Grosor grosor) {
         this.grosor = grosor;
         this.orFresa = orFresa;
         this.pos = pos;
@@ -34,16 +34,6 @@ public class Fresadora implements Maquina {
         }
     }
 
-    ///
-    /// Conjunto de posiciones válidas para aplicar la fresadora en una pieza.
-    ///
-    static Set<Posicion> posicionesValidas = EnumSet.of(
-            Posicion.IzSu,
-            Posicion.IzCe,
-            Posicion.IzIn,
-            Posicion.CeSu,
-            Posicion.CeCe
-    );
 
     ///
     /// Método que realiza la acción de fresado sobre una pieza.
@@ -71,21 +61,10 @@ public class Fresadora implements Maquina {
     /// @param orFresa La orientación de la fresadora (Vertical, Diagonal).
     ///
     private void nuevaFresaOActualiza(Cuadro cuadro, OrFresa orFresa) {
-        int grosorFresaDeseado;
 
         // Determina el grosor deseado basado en el tipo de grosor (Fino, Medio, Grueso)
-        switch (this.grosor) {
-            case Grueso:
-                grosorFresaDeseado = 3;
-                break;
-            case Medio:
-                grosorFresaDeseado = 2;
-                break;
-            case Fino:
-            default:
-                grosorFresaDeseado = 1;
-                break;
-        }
+        int grosorFresaDeseado = Maquina.getGrosorAsNum(grosor);
+
 
         // Comprobamos la orientación y actualizamos el grosor de la fresadora en el cuadro
         switch (orFresa) {

@@ -1,50 +1,57 @@
 package fabrica;
 
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Pieza {
+    private int posOrigen; //Posicion del origen de coordenadas (posicion [0,0] de la matriz)
     private static Map<Posicion, Integer> posicionMap = Map.of(
             Posicion.IzSu, 0,
             Posicion.CeSu, 1,
             Posicion.DeSu, 2,
-            Posicion.IzCe, 3,
-            Posicion.CeCe, 4,
-            Posicion.DeCe, 5,
+            Posicion.DeCe, 3,
+            Posicion.DeIn, 4,
+            Posicion.CeIn, 5,
             Posicion.IzIn, 6,
-            Posicion.CeIn, 7,
-            Posicion.DeIn, 8
+            Posicion.IzCe, 7,
+            Posicion.CeCe, 8
     );
-    private List<Cuadro> cuadros;
+    public Cuadro[] cuadros;
 
     public Pieza() {
-        //To Do
-
+        posOrigen = 0;
+        cuadros = new Cuadro[9];
+        for (int i = 0; i < 9; i++) {
+            cuadros[i] = new Cuadro();
+        }
     }
 
     public Cuadro getCuadro(Posicion posicion) {
-        switch (posicion){
-            case IzSu:return cuadros[posOrigen];
-            case CeSu:return cuadros[posOrigen+1];
-            case DeSu:return cuadros[posOrigen+2];
-            case DeCe:return cuadros[posOrigen+3];
-            case DeIn:return cuadros[posOrigen+4];
-            case CeIn:return cuadros[posOrigen+5];
-            case IzIn:return cuadros[posOrigen+6];
-            case IzCe:return cuadros[posOrigen+7];
-            case CeCe:return cuadros[posOrigen+8];
+        if (posicion==null){
+            return null;
         }
-        return null;
+            switch (posicion){
+                case IzSu:return cuadros[posOrigen%9];
+                case CeSu:return cuadros[(posOrigen+1)%9];
+                case DeSu:return cuadros[(posOrigen+2)%9];
+                case DeCe:return cuadros[(posOrigen+3)%9];
+                case DeIn:return cuadros[(posOrigen+4)%9];
+                case CeIn:return cuadros[(posOrigen+5)%9];
+                case IzIn:return cuadros[(posOrigen+6)%9];
+                case IzCe:return cuadros[(posOrigen+7)%9];
+                case CeCe:return cuadros[(posOrigen+8)%9];
+            }
+            return null;
     }
 
     public void rotar(Sentido sentido) {
-        //To Do
-        //mod 8
+        rotaCuadros(sentido);
+    }
 
-        //rotar cuadros por dentro
-        cuadros.forEach(cuadro -> cuadro.rotar(sentido));
+    public void rotaCuadros(Sentido sentido) {
+        for (int i = 0; i < cuadros.length; i++) {
+            cuadros[i].rotar(sentido);
+        }
     }
 
     @Override
@@ -71,4 +78,3 @@ public class Pieza {
         return sb.toString();
     }
 }
-

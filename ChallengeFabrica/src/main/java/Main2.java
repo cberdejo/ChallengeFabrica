@@ -7,9 +7,9 @@ public class Main2 {
         Fabrica fabrica = new Fabrica();
 
         /// Se añaden las maquinas a la fabrica
-        fabrica.addMaquina(new Fresadora(Grosor.Medio, OrFresa.Vertical, Posicion.IzCe));
-        fabrica.addMaquina(new Fresadora(Grosor.Medio, OrFresa.Vertical, Posicion.IzIn));
-        fabrica.addMaquina(new Fresadora(Grosor.Grueso, OrFresa.Diagonal, Posicion.IzIn));
+        fabrica.addMaquina(new Fresadora(Posicion.IzCe,  OrFresa.Vertical, Grosor.Medio));
+        fabrica.addMaquina(new Fresadora(Posicion.IzIn, OrFresa.Vertical,Grosor.Medio ));
+        fabrica.addMaquina(new Fresadora( Posicion.IzIn, OrFresa.Diagonal,Grosor.Grueso));
         fabrica.addMaquina(new Taladradora(Posicion.IzCe,Grosor.Medio));
         fabrica.addMaquina(new Taladradora(Posicion.IzIn,Grosor.Grueso));
         fabrica.addMaquina(new Lijadora(Posicion.CeCe, OrLija.Norte, Grosor.Medio));
@@ -19,7 +19,7 @@ public class Main2 {
         fabrica.addMaquina(new Rotadora(Sentido.Horario));
         fabrica.addMaquina(new Lijadora(Posicion.CeCe, OrLija.Norte, Grosor.Grueso));
         fabrica.addMaquina(new Taladradora(Posicion.CeCe,Grosor.Grueso));
-        fabrica.addMaquina(new Fresadora(Grosor.Medio, OrFresa.Vertical, Posicion.IzCe));
+        fabrica.addMaquina(new Fresadora( Posicion.IzCe, OrFresa.Vertical,Grosor.Medio));
         fabrica.addMaquina(new Taladradora(Posicion.IzCe,Grosor.Fino));
         
         /// Se crea una pieza apra procesar

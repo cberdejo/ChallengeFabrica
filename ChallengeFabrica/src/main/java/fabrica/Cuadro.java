@@ -28,7 +28,7 @@ public class Cuadro {
     }
 
     private void checkCorrectGrosor(int grosor){
-        if (grosor < 1 || grosor >3){
+        if (grosor < 0 || grosor >3){
             throw new IllegalArgumentException("Grosor incorrecto, debe ser entre 0 y 2");
         }
     }
@@ -167,7 +167,7 @@ public class Cuadro {
             grosorLijaNorte = grosorLijaOeste;
             grosorLijaOeste = grosorLijaSur;
             grosorLijaSur = grosorLijaEste;
-            grosorLijaOeste = grosorSwich;
+            grosorLijaEste = grosorSwich;
 
         }
         grosorSwich = grosorFresadoraVertical;
@@ -182,17 +182,33 @@ public class Cuadro {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-
+        String empty = "   ";
         // Añadimos cada valor si es distinto de 0
         if (grosorLijaNorte != 0) result.append("LN").append(Integer.toString(grosorLijaNorte));
+        else result.append(empty);
         if (grosorLijaEste != 0) result.append("LE").append(Integer.toString(grosorLijaEste));
+        else result.append(empty);
+
         if (grosorLijaSur != 0) result.append("LS").append(Integer.toString(grosorLijaSur));
+        else result.append(empty);
+
         if (grosorLijaOeste != 0) result.append("LO").append(Integer.toString(grosorLijaOeste));
+        else result.append(empty);
+
         if (grosorFresadoraVertical != 0) result.append("FV").append(Integer.toString(grosorFresadoraVertical));
+        else result.append(empty);
+
         if (grosorFresadoraHorizontal != 0) result.append("FH").append(Integer.toString(grosorFresadoraHorizontal));
+        else result.append(empty);
+
         if (grosorFresadoraDiagonalIzquierda != 0) result.append("FI").append(Integer.toString(grosorFresadoraDiagonalIzquierda));
+        else result.append(empty);
+
         if (grosorFresadoraDiagonalDerecha != 0) result.append("FD").append(Integer.toString(grosorFresadoraDiagonalDerecha));
-        if (grosorTaladradora != 0) result.append("T").append(Integer.toString(grosorTaladradora));
+        else result.append(empty);
+
+        if (grosorTaladradora != 0) result.append("TL").append(Integer.toString(grosorTaladradora));
+        else result.append(empty);
 
 
         return result.toString();

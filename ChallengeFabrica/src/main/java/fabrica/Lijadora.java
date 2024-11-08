@@ -10,14 +10,6 @@ public class Lijadora implements Maquina {
     private OrLija orLija;
     private Posicion posicion;
 
-    /// Conjunto d e posiciones validas para las lijas
-    static Set<Posicion> posicionesValidas = EnumSet.of(
-            Posicion.IzSu,
-            Posicion.IzCe,
-            Posicion.IzIn,
-            Posicion.CeSu,
-            Posicion.CeCe);
-
     /// Constructor de la clase lijadora
     /// @param posicion La posicion en la que se coloca la lija
     /// @param orLija La orientacion de la lija
@@ -32,7 +24,6 @@ public class Lijadora implements Maquina {
         this.grosor = grosor;
     }
 
-
     /// Lijadora actua sobre la pieza
     /// @param pieza La pieza sobre la que se actua
     @Override
@@ -41,63 +32,38 @@ public class Lijadora implements Maquina {
         Cuadro cuadro = pieza.getCuadro(posicion);
         /// Metodo para aplicar la lijadora
         nuevaLijadora(cuadro, orLija);
-        
     }
 
     /// Nueva lija en un cuadro
     /// @param cuadro Cuadro sobre el que actuara la lijadora
     /// @param orLija La orientacion de la lija
     private void nuevaLijadora(Cuadro cuadro, OrLija orLija){
-        int grosorNuevaLijadora;
 
         /// Determina el grosor basado en el tipo de grosor (Fino, Medio, Grueso)
-        switch (this.grosor) {
-            case Grueso:
-                grosorNuevaLijadora = 3;
-                break;
-            case Medio:
-                grosorNuevaLijadora = 2;
-                break;
-            case Fino:
-            default:
-                grosorNuevaLijadora = 1;
-                break;
-        }
+        int grosorNuevaLijadora = Maquina.getGrosorAsNum(grosor);;
 
-        if (cuadro.getGrosorTaladradora() == 3 && grosorNuevaLijadora == 1) {
-            return; /// Si hay una taladradora no se puede poner una nueva lija fina
-        } else {
+
+        if (!(cuadro.getGrosorTaladradora() == 3 && grosorNuevaLijadora == 1)) {
+
             /// Actualizacion de las lijas en funcion de su orientacion
             switch (orLija) {
                 case Norte:
-                    int grosorLijaN = cuadro.getGrosorLijaNorte();
-                    if (grosorLijaN == 0) {
-                        cuadro.setGrosorLijaNorte(grosorNuevaLijadora); /// Añadir nueva lija si no existe
-                    } else if (grosorLijaN < grosorNuevaLijadora) {
+                    if (cuadro.getGrosorLijaNorte() < grosorNuevaLijadora) {
                         cuadro.setGrosorLijaNorte(grosorNuevaLijadora); /// Reemplazar si el grosor de la nueva lija es mayor
                     }
                     break;
                 case Sur:
-                    int grosorLijaS = cuadro.getGrosorLijaSur();
-                    if (grosorLijaS == 0) {
-                        cuadro.setGrosorLijaSur(grosorNuevaLijadora); /// Añadir nueva lija si no existe
-                    } else if (grosorLijaS < grosorNuevaLijadora) {
+                    if (cuadro.getGrosorLijaSur() < grosorNuevaLijadora) {
                         cuadro.setGrosorLijaSur(grosorNuevaLijadora); /// Reemplazar si el grosor de la nueva lija es mayor
                     }
                     break;
                 case Este:
-                    int grosorLijaE = cuadro.getGrosorLijaEste();
-                    if (grosorLijaE == 0) {
-                        cuadro.setGrosorLijaEste(grosorNuevaLijadora); /// Añadir nueva lija si no existe
-                    } else if (grosorLijaE < grosorNuevaLijadora) {
+                    if (cuadro.getGrosorLijaEste() < grosorNuevaLijadora) {
                         cuadro.setGrosorLijaEste(grosorNuevaLijadora); /// Reemplazar si el grosor de la nueva lija es mayor
                     }
                     break;
                 case Oeste:
-                    int grosorLijaO = cuadro.getGrosorLijaOeste();
-                    if (grosorLijaO == 0) {
-                        cuadro.setGrosorLijaOeste(grosorNuevaLijadora); /// Añadir nueva lija si no existe
-                    } else if (grosorLijaO < grosorNuevaLijadora) {
+                    if (cuadro.getGrosorLijaOeste() < grosorNuevaLijadora) {
                         cuadro.setGrosorLijaOeste(grosorNuevaLijadora); /// Reemplazar si el grosor de la nueva lija es mayor
                     }
                     break;
