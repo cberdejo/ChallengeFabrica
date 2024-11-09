@@ -21,7 +21,7 @@ public class Main {
         Recta recta2 = new Recta(new Punto(2, 6), new Punto(4, 8));
 
 
-        System.out.println("Paralelas: " + recta1.esParalela(recta2));
+        System.out.println("Paralelas: " + recta1.esParalelaA(recta2));
 
 
         Implicita implicita1 = recta1.implicita();

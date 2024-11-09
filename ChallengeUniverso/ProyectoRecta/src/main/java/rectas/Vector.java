@@ -50,7 +50,7 @@ public record Vector(Punto extremo) {
      * @param otro El vector a comparar.
      * @return `true` si los vectores son paralelos, `false` en caso contrario.
      */
-    public boolean esParalelo(Vector otro) {
+    public boolean esParaleloA(Vector otro) {
         return Math.abs(this.x() * otro.y() - this.y() * otro.x()) < EPSILON;
     }
 

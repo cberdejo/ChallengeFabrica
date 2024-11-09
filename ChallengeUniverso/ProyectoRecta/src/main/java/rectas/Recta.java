@@ -2,19 +2,11 @@ package rectas;
 
 import java.util.Optional;
 
-public record Recta(Punto punto, Vector vectorDirector) {
+public record Recta(Vector vectorDirector,Punto punto ) {
 
     private static final double EPSILON = 0.000001;
 
-    /** Constructor clase recta
-     *
-     * @param punto Un punto de la recta
-     * @param vectorDirector El vector director de la recta
-     */
-    public Recta(Punto punto, Vector vectorDirector) {
-        this.vectorDirector = vectorDirector;
-        this.punto = punto;
-    }
+
 
     /** Constructor2 clase recta
      *
@@ -22,7 +14,7 @@ public record Recta(Punto punto, Vector vectorDirector) {
      * @param p2 Segundo punto de la recta
      */
     public Recta(Punto p1, Punto p2) {
-        this(p1, new Vector(p1, p2));
+        this(new Vector(p1, p2),p1);
     }
 
     /** Comprueba si esta recta es paralela a otra recta
@@ -30,8 +22,8 @@ public record Recta(Punto punto, Vector vectorDirector) {
      * @param r Otra recta
      * @return 'true' si son paralelas, 'false' si no lo son
      */
-    public boolean esParalela (Recta r){
-        return this.vectorDirector.esParalelo(r.vectorDirector);
+    public boolean esParalelaA (Recta r){
+        return this.vectorDirector.esParaleloA(r.vectorDirector);
     }
 
     /** Calcula la ecuacion implicita de la recta
@@ -74,7 +66,7 @@ public record Recta(Punto punto, Vector vectorDirector) {
         double c2 = -(a2 * r.punto.x() + b2 * r.punto.y());
 
 
-        double determinante = a1 * b2 - a2 * b1;
+        double determinante = determinante(a1, b1, a2, b2);
         if (Math.abs(determinante) < EPSILON) {
             return Optional.empty();
         }
@@ -91,7 +83,7 @@ public record Recta(Punto punto, Vector vectorDirector) {
      * @return Nueva recta
      */
     public Recta paralelaPor(Punto p){
-        return new Recta (p, vectorDirector);
+        return new Recta ( vectorDirector,p);
     }
 
     /** Nueva recta perpendicular a la actual que pasa por un punto p
@@ -101,7 +93,7 @@ public record Recta(Punto punto, Vector vectorDirector) {
      */
     public Recta perpendicularPor(Punto p){
         Vector vectorPerpendicular = new Vector(-vectorDirector.y(), vectorDirector.x());
-        return new Recta(p, vectorPerpendicular);
+        return new Recta(vectorPerpendicular,p);
     }
 
     /**Distancia desde un punto a la recta
