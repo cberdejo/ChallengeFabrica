@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>org.uma.mbd</groupId>
-            <artifactId>ProyectoRectas</artifactId>
+            <artifactId>ProyectoRecta</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
