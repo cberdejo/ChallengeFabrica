@@ -1,5 +1,7 @@
 package universo;
 
+import rectas.Vector;
+
 public class Universo {
 
     private Particula[] particulas;

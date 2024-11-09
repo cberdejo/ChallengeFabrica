@@ -69,7 +69,7 @@ public record Vector(Punto extremo) {
      * @throws RuntimeException Si el módulo del vector es cero.
      * @return Un vector unitario en la dirección del vector actual.
      */
-    public Vector dirección() {
+    public Vector direccion() {
         double modulo = modulo();
         if (modulo == 0) {
             throw new RuntimeException("El módulo del vector es cero, no se puede definir dirección.");

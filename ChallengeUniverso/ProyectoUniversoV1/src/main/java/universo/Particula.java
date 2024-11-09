@@ -1,5 +1,8 @@
 package universo;
 
+import rectas.Punto;
+import rectas.Vector;
+
 public class Particula{
     private Punto posicion;
     private double masa;
@@ -50,7 +53,7 @@ public class Particula{
         // Cálculo de la distancia
         double distancia = direccion.modulo();
 
-        // Cálculo del vector unitario
+        // Cálculo del vector unitarios
         Vector u12 = direccion.direccion();
 
         // Cálculo de la fuerza usando la fórmula
@@ -71,7 +74,8 @@ public class Particula{
         // Nueva velocidad de la particula
         this.velocidad = this.velocidad.sum(aceleracion.escalar(dt));
         // Nueva posicion de la particula
-        this.posicion = this.posicion.sum(velocidad.escalar(dt));
+
+        this.posicion = new Punto(posicion.x()+ velocidad.x(), posicion.y()+velocidad.y());
     }
 
 

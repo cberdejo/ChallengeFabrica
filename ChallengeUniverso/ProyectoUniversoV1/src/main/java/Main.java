@@ -1,7 +1,8 @@
 import gui.PanelUniverso;
+import rectas.Punto;
+import rectas.Vector;
 import universo.Particula;
 import universo.Universo;
-import 
 import javax.swing.*;
 
 public class Main {

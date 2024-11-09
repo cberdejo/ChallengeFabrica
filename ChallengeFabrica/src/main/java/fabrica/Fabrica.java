@@ -32,24 +32,24 @@ public class Fabrica {
 
             do {
                 int tipoMaquina = alea.nextInt(numMaquinas);
-                int numPosicionesValidas = 5;
-                int numOrLijaValidos = 2;
+                List<Posicion> posicionValidas = List.of(Posicion.IzSu, Posicion.IzCe, Posicion.IzIn,Posicion.CeSu, Posicion.CeCe);
+                List<OrLija> orLijaValidas = List.of(OrLija.Norte,OrLija.Sur);
                 nuevaMaquina = switch (tipoMaquina) {
                     case 0 -> new Fresadora(
-                            Posicion.values()[alea.nextInt(numPosicionesValidas)],
+                            posicionValidas.get(alea.nextInt( posicionValidas.size())),
                             OrFresa.values()[alea.nextInt(OrFresa.values().length)],
                             Grosor.values()[alea.nextInt(Grosor.values().length)]
 
                             );
                     case 1 -> new Lijadora(
-                            Posicion.values()[alea.nextInt(numPosicionesValidas)],
-                            OrLija.values()[alea.nextInt(numOrLijaValidos)],
+                            posicionValidas.get(alea.nextInt( posicionValidas.size())),
+                            orLijaValidas.get(alea.nextInt(orLijaValidas.size())),
                             Grosor.values()[alea.nextInt(Grosor.values().length)]
                     );
                     case 2 -> new Rotadora(Sentido.values()[alea.nextInt(Sentido.values().length)]);
 
                     case 3 -> new Taladradora(
-                            Posicion.values()[alea.nextInt(numPosicionesValidas)],
+                            posicionValidas.get(alea.nextInt( posicionValidas.size())),
                             Grosor.values()[alea.nextInt(Grosor.values().length)]
                     );
                     default -> null;
