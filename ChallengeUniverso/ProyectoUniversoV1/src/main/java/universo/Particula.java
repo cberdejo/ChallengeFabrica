@@ -46,6 +46,8 @@ public class Particula{
      * @param p La otra particula
      * @return Vector fuerza atraccion
      */
+
+
     public Vector fuerzaDesde(Particula p){
 
         Vector direccion = new Vector(this.posicion, p.posicion());
@@ -75,7 +77,7 @@ public class Particula{
         this.velocidad = this.velocidad.sum(aceleracion.escalar(dt));
         // Nueva posicion de la particula
 
-        this.posicion = new Punto(posicion.x()+ velocidad.x(), posicion.y()+velocidad.y());
+        this.posicion = new Punto(posicion.x() + velocidad.x() * dt, posicion.y() + velocidad.y() * dt);
     }
 
 

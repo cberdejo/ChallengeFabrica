@@ -50,14 +50,16 @@ public class Universo {
             fuerzas[i] = new Vector(0,0);
         }
         // Calcular la fuerza de atraccion
-        for(int i =0; i< particulas.length; i++){
-            for(int j =0; j< particulas.length; j++){
-                if(i !=j){
-                    // Fuerza que la partícula j ejerce sobre la partícula i
-                    Vector fuerza = particulas[i].fuerzaDesde(particulas[j]);
-                    // Suma de fuerzas que actuan sobre la particula i
-                    fuerzas[i]= fuerzas[i].sum(fuerza);
-                }
+        for (int i = 0; i < particulas.length; i++) {
+            for (int j = i + 1; j < particulas.length; j++) {
+                // Fuerza que la partícula j ejerce sobre la partícula i
+                Vector fuerzaIJ = particulas[i].fuerzaDesde(particulas[j]);
+
+                // Suma de la fuerza que actúa sobre la partícula i
+                fuerzas[i] = fuerzas[i].sum(fuerzaIJ);
+
+                // Suma de la fuerza en dirección opuesta que actúa sobre la partícula j
+                fuerzas[j] = fuerzas[j].sum(fuerzaIJ.escalar(-1));
             }
         }
         // Mover cada partícula aplicando la fuerza total calculada y el tiempo dt

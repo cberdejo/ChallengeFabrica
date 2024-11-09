@@ -1,8 +1,10 @@
 import gui.PanelUniverso;
 import universo.DatosUniverso;
-import universo.Universo;
+
 import javax.swing.*;
 import java.io.IOException;
+import universo.Universo;
+
 
 public class MainFichero {
     public static void main(String[] args) throws IOException {

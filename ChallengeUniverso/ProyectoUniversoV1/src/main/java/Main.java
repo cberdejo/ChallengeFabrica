@@ -13,7 +13,7 @@ public class Main {
         app.setContentPane(pu);
         app.setSize(1024,1024);
         app.setVisible(true);
-        // ejemplo1(pu,7500,5);
+        //ejemplo1(pu,7500,5);
         ejemplo2(pu,7500,10);
         // ejemplo3(pu,7500,3);
         // ejemplo4(pu,7500,1);
