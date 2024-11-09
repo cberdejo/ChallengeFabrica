@@ -4,14 +4,6 @@ import java.util.Set;
 
 
 
- /// La clase Lijadora representa una máquina lijadora utilizada en una fábrica
- /// para modificar los cuadros de una pieza mediante el uso de lijas. La lijadora
- /// puede tener distintas orientaciones (Norte, Sur) y se coloca en las posiciones
- /// específicas de la pieza.
- ///
- /// Implementa la interfaz Maquina, lo que permite que interactúe con el sistema
- /// de procesamiento de piezas.
-
 public class Lijadora implements Maquina {
 
     private Grosor grosor;

@@ -3,10 +3,10 @@ import fabrica.*;
 public class Main2 {
     public static void main(String[] args) {
 
-        /// Se declara y se inicializa la fabrica
+        // Se declara y se inicializa la fabrica
         Fabrica fabrica = new Fabrica();
 
-        /// Se añaden las maquinas a la fabrica
+        // Se añaden las maquinas a la fabrica
         fabrica.addMaquina(new Fresadora(Posicion.IzCe,  OrFresa.Vertical, Grosor.Medio));
         fabrica.addMaquina(new Fresadora(Posicion.IzIn, OrFresa.Vertical,Grosor.Medio ));
         fabrica.addMaquina(new Fresadora( Posicion.IzIn, OrFresa.Diagonal,Grosor.Grueso));
@@ -22,13 +22,10 @@ public class Main2 {
         fabrica.addMaquina(new Fresadora( Posicion.IzCe, OrFresa.Vertical,Grosor.Medio));
         fabrica.addMaquina(new Taladradora(Posicion.IzCe,Grosor.Fino));
         
-        /// Se crea una pieza apra procesar
+        // Se crea una pieza apra procesar
         Pieza pieza = new Pieza();
 
-        /// Cada maquina actua sobre la pieza
-        for (Maquina maquina : fabrica.getMaquinas()) {
-            maquina.actua(pieza);
-        }
+        fabrica.marca(pieza);
 
         System.out.println("Representación textual de la pieza:");
         System.out.println(pieza);

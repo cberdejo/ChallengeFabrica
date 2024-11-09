@@ -2,7 +2,7 @@ package fabrica;
 
 import java.util.List;
 import java.util.Map;
-
+/// Clase que representa un cuadro de una pieza
 public class Cuadro {
     private int grosorFresadoraVertical;
     private int grosorFresadoraHorizontal;
@@ -27,49 +27,18 @@ public class Cuadro {
 
     }
 
+    ///Comprueba si el valor del grosor es correcto, es decir que esté comprendido entre el 0 y el 3
+    /// @param grosor grosor que se va a comprobar
+    /// @throws IllegalArgumentException
     private void checkCorrectGrosor(int grosor){
         if (grosor < 0 || grosor >3){
-            throw new IllegalArgumentException("Grosor incorrecto, debe ser entre 0 y 2");
+            throw new IllegalArgumentException("Grosor incorrecto, debe ser entre 0 y 3");
         }
     }
 
     public int getGrosorFresadoraVertical() {
         return grosorFresadoraVertical;
     }
-
-    public int getGrosorLijaByOrLija(OrLija orLija) {
-        switch (orLija) {
-            case OrLija.Norte:
-                return grosorLijaNorte;
-            case OrLija.Sur:
-                return grosorLijaSur;
-            case OrLija.Este:
-                return grosorLijaEste;
-            case OrLija.Oeste:
-                return grosorLijaOeste;
-            default:
-                return 0;
-        }
-    }
-    public void setGrosorLijaByOrLija(int grosor, OrLija orLija) {
-        switch (orLija) {
-            case OrLija.Norte:
-                setGrosorLijaNorte(grosor);
-                break;
-            case OrLija.Sur:
-                setGrosorLijaSur(grosor);
-                break;
-            case OrLija.Este:
-                setGrosorLijaEste(grosor);
-                break;
-            case OrLija.Oeste:
-                setGrosorLijaOeste(grosor);
-                break;
-            default:
-                break;
-        }
-    }
-
 
 
     public void setGrosorFresadoraVertical(int grosorFresadoraVertical) {
@@ -151,32 +120,36 @@ public class Cuadro {
         this.grosorTaladradora = grosorTaladradora;
     }
 
-    ///
+    ///Rota la orientación de las marcas dado un sentido
+    /// @param sentido sentido en el que se rotan las piezas
     protected void rotar(Sentido sentido){
-        int grosorSwich = 0;
-        if (sentido == Sentido.Horario){
-            grosorSwich = grosorLijaNorte;
-            grosorLijaNorte = grosorLijaEste;
-            grosorLijaEste = grosorLijaSur;
-            grosorLijaSur = grosorLijaOeste;
-            grosorLijaOeste = grosorSwich;
 
-        }
-        else {
-            grosorSwich = grosorLijaNorte;
+        int grosorAux = 0;
+        //Lijadora
+        if (sentido == Sentido.Horario){
+            grosorAux = grosorLijaNorte;
             grosorLijaNorte = grosorLijaOeste;
             grosorLijaOeste = grosorLijaSur;
             grosorLijaSur = grosorLijaEste;
-            grosorLijaEste = grosorSwich;
+            grosorLijaEste = grosorAux;
 
         }
-        grosorSwich = grosorFresadoraVertical;
-        grosorFresadoraVertical = grosorFresadoraHorizontal;
-        grosorFresadoraHorizontal = grosorSwich;
+        else {
+            grosorAux = grosorLijaNorte;
+            grosorLijaNorte = grosorLijaEste;
+            grosorLijaEste = grosorLijaSur;
+            grosorLijaSur = grosorLijaOeste;
+            grosorLijaOeste = grosorAux;
+        }
 
-        grosorSwich = grosorFresadoraDiagonalDerecha;
+        //Fresadora
+        grosorAux = grosorFresadoraVertical;
+        grosorFresadoraVertical = grosorFresadoraHorizontal;
+        grosorFresadoraHorizontal = grosorAux;
+
+        grosorAux = grosorFresadoraDiagonalDerecha;
         grosorFresadoraDiagonalDerecha = grosorFresadoraDiagonalIzquierda;
-        grosorFresadoraDiagonalIzquierda = grosorSwich;
+        grosorFresadoraDiagonalIzquierda = grosorAux;
     }
 
     @Override
@@ -207,7 +180,7 @@ public class Cuadro {
         if (grosorFresadoraDiagonalDerecha != 0) result.append("FD").append(Integer.toString(grosorFresadoraDiagonalDerecha));
         else result.append(empty);
 
-        if (grosorTaladradora != 0) result.append("T").append(Integer.toString(grosorTaladradora));
+        if (grosorTaladradora != 0) result.append("TL").append(Integer.toString(grosorTaladradora));
         else result.append(empty);
 
 

@@ -12,6 +12,12 @@ public interface Maquina {
             Posicion.CeCe
     );
 
+   /// Devuelve un valor númerico que representa el grosor:
+   /// 1. Grueso -> 3
+   /// 1. Medio -> 2
+   /// 1. Fino -> 1
+   /// @param  grosor
+   /// @return  valor númerico del grosor
     static int getGrosorAsNum(Grosor grosor) {
         return switch (grosor) {
             case Grueso -> 3;
