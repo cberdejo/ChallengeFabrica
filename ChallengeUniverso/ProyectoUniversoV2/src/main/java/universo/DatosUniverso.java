@@ -15,12 +15,13 @@ public record DatosUniverso(Universo universo, double dt, int sleep) {
     /// @param fichero Fichero de configuracion
     public static DatosUniverso leeDatos(String fichero) throws IOException {
         try (Scanner sc = new Scanner(new File(fichero))) {
+            sc.useLocale(Locale.US);
             int numParticulas = sc.nextInt();
             double radioUniverso = sc.nextDouble();
             double dt = sc.nextDouble();
             int sleep = sc.nextInt();
             Particula[] particulas = new Particula[numParticulas];
-            sc.useLocale(Locale.US);
+
             for (int i = 0; i < numParticulas; i++) {
                 particulas[i] = leeParticula(sc);
             }
